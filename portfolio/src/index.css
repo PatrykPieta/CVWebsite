@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-darkBg: #0b0f19;
+  --color-cardBg: #111827;
+  --color-primary: #6366f1;
+}
+
+body {
+  background-color: var(--color-darkBg);
+  color: white;
+}
