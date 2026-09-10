@@ -3,11 +3,34 @@ import React, { useState } from 'react';
 function App() {
   const [activeTab, setActiveTab] = useState('home');
 
+  const certificates = [
+    { name: "Databases and SQL for Data Science", file: "DatabasesandSQLforDataSciencewithPython.pdf" },
+    { name: "Data Engineering Capstone Project", file: "DataEngineeringCapstoneProject.pdf" },
+    { name: "Data Engineering Career Guide", file: "DataEngineeringCareerGuideandInterview.pdf" },
+    { name: "Data Engineering Foundations", file: "DataEngineeringFundations.pdf" },
+    { name: "Data Warehouse Fundamentals", file: "DataWarehouseFundamentals.pdf" },
+    { name: "Design Fundamentals In AI", file: "DesignFundamentalsInAI.pdf" },
+    { name: "ETL and Data Pipelines (Airflow)", file: "ETLandDataPipelineswithShellAirflowand.pdf" },
+    { name: "Generative AI Content Creation", file: "GenerativeAIContentCreation.pdf" },
+    { name: "Generative AI Elevate Career", file: "GenerativeAIElevateyourDataEngineeringCareer.pdf" },
+    { name: "Generative AI Prompt Engineering", file: "GenerativeAIPromptEngineeringBasics.pdf" },
+    { name: "Linux Commands", file: "Hands-onIntroductiontoLinuxCommandsand.pdf" },
+    { name: "Big Data with Spark & Hadoop", file: "IntroductiontoBigDatawithSparkandHadoop.pdf" },
+    { name: "Introduction to Data Engineering", file: "IntroductionToDataEngineering.pdf" },
+    { name: "Introduction to NoSQL Databases", file: "IntroductiontoNoSQLDatabases.pdf" },
+    { name: "Relational Databases (RDBMS)", file: "IntroductiontoRelationalDatabases(RDBMS).pdf" },
+    { name: "Machine Learning with Spark", file: "MachineLearningwithApacheSpark.pdf" },
+    { name: "Python for Data Science & AI", file: "PythonforDataScienceAI&Development.pdf" },
+    { name: "Python Project for Data Engineering", file: "PythonProjectforDataEngineering.pdf" },
+    { name: "Relational Database Administration", file: "RelationalDatabaseAdministration(DBA).pdf" },
+    { name: "Social Media Content And Strategy", file: "SocialMediaContentAndStrategy.pdf" }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#0a0f1c] text-white font-sans selection:bg-purple-500/30">
       
       {/* Baner - Strona w budowie */}
-      <div className="bg-blue-900/20 border-y border-blue-500/20 py-2.5 px-6 text-center text-xs sm:text-sm text-gray-300 flex items-center justify-center gap-3">
+      <div className="bg-[#121b2e] border-b border-blue-900/30 py-2.5 px-6 text-center text-xs sm:text-sm text-gray-400 flex items-center justify-center gap-3">
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -15,120 +38,109 @@ function App() {
         <span>Strona w trakcie aktywnej rozbudowy pod kątem rekrutacji (Data Engineering & SQL). Wkrótce kolejne aktualizacje!</span>
       </div>
 
-      {/* Nawigacja */}
-      <nav className="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center overflow-x-auto">
-          <div className="text-xl font-bold text-white tracking-wider pr-4">Patryk<span className="text-blue-500">Pięta</span></div>
-          <div className="flex gap-6 text-sm sm:text-base whitespace-nowrap">
-            <button onClick={() => setActiveTab('home')} className={`${activeTab === 'home' ? 'text-blue-400 font-medium' : 'text-gray-400 hover:text-white'} transition-colors`}>O mnie</button>
-            <button onClick={() => setActiveTab('experience')} className={`${activeTab === 'experience' ? 'text-blue-400 font-medium' : 'text-gray-400 hover:text-white'} transition-colors`}>Doświadczenie</button>
-            <button onClick={() => setActiveTab('projects')} className={`${activeTab === 'projects' ? 'text-blue-400 font-medium' : 'text-gray-400 hover:text-white'} transition-colors`}>Projekty</button>
-            <button onClick={() => setActiveTab('certificates')} className={`${activeTab === 'certificates' ? 'text-blue-400 font-medium' : 'text-gray-400 hover:text-white'} transition-colors`}>Certyfikaty</button>
-          </div>
+      {/* Nawigacja z Twojego screena */}
+      <nav className="flex justify-between items-center py-8 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="text-xl font-bold tracking-widest flex items-center gap-2">
+          <span className="text-blue-500">{'>_'}</span> PORTFOLIO
+        </div>
+        <div className="hidden md:flex gap-8 text-sm font-medium">
+          <button onClick={() => setActiveTab('home')} className={`${activeTab === 'home' ? 'text-blue-500' : 'text-gray-400 hover:text-gray-200'} transition-colors`}>Home</button>
+          <button onClick={() => setActiveTab('experience')} className={`${activeTab === 'experience' ? 'text-blue-500' : 'text-gray-400 hover:text-gray-200'} transition-colors`}>Doświadczenie & Skille</button>
+          <button onClick={() => setActiveTab('projects')} className={`${activeTab === 'projects' ? 'text-blue-500' : 'text-gray-400 hover:text-gray-200'} transition-colors`}>Projekty</button>
+          <button onClick={() => setActiveTab('certificates')} className={`${activeTab === 'certificates' ? 'text-blue-500' : 'text-gray-400 hover:text-gray-200'} transition-colors`}>Certyfikaty</button>
         </div>
       </nav>
 
       {/* Główna zawartość */}
-      <main className="max-w-5xl mx-auto px-6 py-12">
+      <main className="max-w-7xl mx-auto px-6 md:px-12 py-10">
         
-        {/* ZAKŁADKA: O MNIE */}
+        {/* ZAKŁADKA: HOME (Odwzorowana z Twojego screena) */}
         {activeTab === 'home' && (
-          <div className="space-y-12 animate-fade-in">
-            <div className="text-center">
-              <img 
-                src="/images/IMG_3819.jpg" 
-                alt="Patryk Pięta" 
-                className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover shadow-xl border-4 border-blue-500/20 mb-6" 
-              />
-              <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Patryk Pięta</h1>
-              <p className="text-xl text-blue-400 mb-6">Junior Data Engineer / Technology for Industry 4.0 Student</p>
-              <div className="flex justify-center gap-4 text-gray-400">
-                <a href="mailto:emzet959@gmail.com" className="hover:text-white transition-colors flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                  emzet959@gmail.com
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-6 mt-4 animate-fade-in">
+            <div className="lg:w-1/2">
+              <div className="text-blue-600 font-bold tracking-wider text-xs md:text-sm mb-6 uppercase flex items-center gap-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                Technology for industry 4.0 student
+              </div>
+              <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight text-white">
+                Buduję <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">rozwiązania oparte na danych.</span>
+              </h1>
+              <p className="text-gray-400 text-base md:text-lg mb-10 max-w-lg leading-relaxed">
+                Łączę świat systemów przemysłowych z nowoczesnym oprogramowaniem. Projektuję zautomatyzowane przepływy danych (Python, SQL, Apache Spark) i przekładam wymagania biznesowe na wydajne rozwiązania.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button onClick={() => setActiveTab('projects')} className="bg-[#4f46e5] hover:bg-[#4338ca] text-white px-8 py-3.5 rounded-lg font-semibold transition-all">
+                  Zobacz projekty &rarr;
+                </button>
+                <a href="/images/PATRYK_PIĘTA_FlowCV_Resume_2026-09-08.pdf" target="_blank" rel="noopener noreferrer" className="border border-gray-600 hover:border-gray-400 text-gray-300 px-8 py-3.5 rounded-lg font-semibold transition-all flex items-center gap-2">
+                  Pobierz CV 
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 </a>
-                <span className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                  +48 530 229 233
-                </span>
               </div>
             </div>
-
-            <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700/50">
-              <h2 className="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">O mnie</h2>
-              <p className="text-gray-300 leading-relaxed text-lg">
-                Technology for Industry 4.0 student at AGH University bridging the gap between data engineering and modern software systems. Experienced in building robust data pipelines (Python, SQL, Apache Spark) and web applications featuring complex document workflows and bulk data processing. Highly interested in data-driven architectures, scalable backend services, and modern analytics (including LLM/AI integrations).
-              </p>
-            </div>
-
-            <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700/50">
-              <h2 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Technologie i Narzędzia</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Core & Data Engineering</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {['Python', 'SQL', 'NoSQL', 'ETL Pipelines', 'Apache Spark', 'Kafka', 'Apache Airflow', 'Linux Shell'].map(tech => (
-                      <span key={tech} className="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Narzędzia & Inne</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {['Power BI', 'Advanced Excel', 'Git', 'GCP Basics', 'Matlab', 'SolidWorks'].map(tech => (
-                      <span key={tech} className="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">{tech}</span>
-                    ))}
-                  </div>
-                </div>
+            <div className="lg:w-1/2 flex justify-center lg:justify-end">
+              <div className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border border-gray-800/50 bg-[#121b2e] flex items-center justify-center overflow-hidden shadow-2xl relative">
+                {/* Tutaj jest podpięte Twoje zdjęcie profilowe */}
+                <img src="/images/IMG_3819.jpg" alt="Patryk Pięta" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 rounded-full border border-blue-500/10"></div>
               </div>
             </div>
           </div>
         )}
 
-        {/* ZAKŁADKA: DOŚWIADCZENIE */}
+        {/* ZAKŁADKA: DOŚWIADCZENIE & SKILLE */}
         {activeTab === 'experience' && (
-          <div className="space-y-8 animate-fade-in">
-            <h2 className="text-3xl font-bold text-white mb-8">Doświadczenie Zawodowe</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 animate-fade-in">
+            {/* Doświadczenie */}
+            <div>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span className="text-purple-500">#</span> Doświadczenie
+              </h2>
+              <div className="space-y-10 border-l border-gray-800 pl-6 ml-3">
+                <div className="relative">
+                  <div className="absolute -left-[31px] bg-[#0a0f1c] border border-blue-500 rounded-full w-4 h-4 mt-1.5"></div>
+                  <h3 className="text-xl font-bold">Intern (Application Development)</h3>
+                  <div className="text-blue-400 text-sm font-medium mb-3">PGE Polish Energy Group | 07/2026 – Obecnie</div>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Tworzenie aplikacji webowych i serwisów backendowych do przetwarzania historycznych danych przetargowych. Implementacja zautomatyzowanych przepływów danych (ETL) przy użyciu Pythona i SQL.
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="absolute -left-[31px] bg-[#0a0f1c] border border-gray-700 rounded-full w-4 h-4 mt-1.5"></div>
+                  <h3 className="text-xl font-bold text-gray-300">Brand Promoter</h3>
+                  <div className="text-gray-500 text-sm font-medium mb-3">Tefal | 03/2026 – Obecnie</div>
+                </div>
+                <div className="relative">
+                  <div className="absolute -left-[31px] bg-[#0a0f1c] border border-gray-700 rounded-full w-4 h-4 mt-1.5"></div>
+                  <h3 className="text-xl font-bold text-gray-300">Maintenance Intern</h3>
+                  <div className="text-gray-500 text-sm font-medium mb-3">Schneider Electric | 07/2025 – 09/2025</div>
+                </div>
+              </div>
+            </div>
             
-            <div className="relative pl-8 border-l-2 border-blue-500/30 space-y-12">
-              <div className="relative">
-                <div className="absolute -left-[41px] bg-gray-900 border-2 border-blue-500 rounded-full w-5 h-5 mt-1.5"></div>
-                <h3 className="text-xl font-bold text-white">Intern (Application Development)</h3>
-                <div className="text-blue-400 font-medium mb-2">PGE Polish Energy Group | Kraków | 07/2026 – Obecnie</div>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 mt-4">
-                  <li>Developed and maintained web applications and backend services for processing historical tender data.</li>
-                  <li>Implemented automated database workflows for mass document conversion and bulk data uploading (ETL processes) using Python and SQL.</li>
-                  <li>Collaborated closely on data modeling and ensuring data reliability for business users.</li>
-                </ul>
-              </div>
-
-              <div className="relative">
-                <div className="absolute -left-[41px] bg-gray-900 border-2 border-gray-600 rounded-full w-5 h-5 mt-1.5"></div>
-                <h3 className="text-xl font-bold text-white">Brand Promoter</h3>
-                <div className="text-gray-400 font-medium mb-2">Tefal | Kraków | 03/2026 – Obecnie</div>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 mt-4">
-                  <li>Providing technical consultancy and conducting live demonstrations for premium home appliances.</li>
-                </ul>
-              </div>
-
-              <div className="relative">
-                <div className="absolute -left-[41px] bg-gray-900 border-2 border-gray-600 rounded-full w-5 h-5 mt-1.5"></div>
-                <h3 className="text-xl font-bold text-white">Maintenance Intern</h3>
-                <div className="text-gray-400 font-medium mb-2">Schneider Electric | Bukowno | 07/2025 – 09/2025</div>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 mt-4">
-                  <li>Participated in daily SIM (Short Interval Management) meetings to monitor production efficiency.</li>
-                  <li>Conducted a comprehensive inventory of spare parts to ensure maintenance continuity.</li>
-                  <li>Updated LOTO (Lockout-Tagout) procedures and safety documentation.</li>
-                </ul>
-              </div>
-
-              <div className="relative">
-                <div className="absolute -left-[41px] bg-gray-900 border-2 border-gray-600 rounded-full w-5 h-5 mt-1.5"></div>
-                <h3 className="text-xl font-bold text-white">Maintenance Intern</h3>
-                <div className="text-gray-400 font-medium mb-2">VelvetCare | Klucze | 07/2024 – 09/2024</div>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 mt-4">
-                  <li>Assisted in technical oversight of production lines and supported mechanical repairs.</li>
-                </ul>
+            {/* Skille */}
+            <div>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span className="text-purple-500">#</span> Tech Stack
+              </h2>
+              <div className="bg-[#121b2e] border border-gray-800/50 rounded-2xl p-8">
+                <div className="mb-8">
+                  <h3 className="text-gray-400 uppercase tracking-widest text-xs font-bold mb-4">Data Engineering & Backend</h3>
+                  <div className="flex flex-wrap gap-2.5">
+                    {['Python', 'SQL', 'NoSQL', 'ETL Pipelines', 'Apache Spark', 'Kafka', 'Airflow'].map(tech => (
+                      <span key={tech} className="bg-blue-900/20 border border-blue-500/30 text-blue-300 px-4 py-1.5 rounded text-sm">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-gray-400 uppercase tracking-widest text-xs font-bold mb-4">Narzędzia & Przemysł 4.0</h3>
+                  <div className="flex flex-wrap gap-2.5">
+                    {['Power BI', 'Advanced Excel', 'Linux Shell', 'Git', 'Matlab', 'SolidWorks'].map(tech => (
+                      <span key={tech} className="bg-gray-800 border border-gray-700 text-gray-300 px-4 py-1.5 rounded text-sm">{tech}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -136,118 +148,81 @@ function App() {
 
         {/* ZAKŁADKA: PROJEKTY */}
         {activeTab === 'projects' && (
-          <div className="space-y-8 animate-fade-in">
-            <h2 className="text-3xl font-bold text-white mb-8">Wybrane Projekty</h2>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-gray-800/40 rounded-2xl p-6 border border-gray-700/50 hover:border-blue-500/50 transition-colors">
-                <h3 className="text-2xl font-bold text-white mb-2">AGV Digital Twin</h3>
-                <p className="text-blue-400 text-sm mb-4">KN Sensor Science Club (AGH)</p>
-                <p className="text-gray-300 mb-6">
-                  Developing a Digital Twin architecture for an Autonomous Guided Vehicle. Focus on real-time IoT data processing, sensor integration, and 3D web visualization using Python, Kafka, and data streaming technologies.
-                </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  <span className="bg-blue-900/30 text-blue-300 px-3 py-1 rounded text-xs font-medium">Python</span>
-                  <span className="bg-blue-900/30 text-blue-300 px-3 py-1 rounded text-xs font-medium">IoT Data</span>
-                  <span className="bg-blue-900/30 text-blue-300 px-3 py-1 rounded text-xs font-medium">Kafka</span>
+          <div className="animate-fade-in">
+             <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span className="text-purple-500">#</span> Wybrane Projekty
+              </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-[#121b2e] border border-gray-800/50 rounded-2xl p-8 hover:border-purple-500/50 transition-all group">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3 bg-blue-900/20 rounded-lg text-blue-400">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                  </div>
                 </div>
-              </div>
-
-              <div className="bg-gray-800/40 rounded-2xl p-6 border border-gray-700/50 hover:border-blue-500/50 transition-colors">
-                <h3 className="text-2xl font-bold text-white mb-2">Cranes Control System</h3>
-                <p className="text-blue-400 text-sm mb-4">Projekt Akademicki</p>
-                <p className="text-gray-300 mb-6">
-                  Working on intelligent control algorithms for industrial crane models. Implementation of mathematical modeling and process automation.
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">AGV Digital Twin</h3>
+                <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+                  Projekt architektury Cyfrowego Bliźniaka dla pojazdu AGV. Integracja danych z czujników IoT w czasie rzeczywistym, przetwarzanie danych przy użyciu Kafki oraz wizualizacja 3D.
                 </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  <span className="bg-gray-700 text-gray-300 px-3 py-1 rounded text-xs font-medium">Automation</span>
-                  <span className="bg-gray-700 text-gray-300 px-3 py-1 rounded text-xs font-medium">Matlab</span>
+                <div className="flex gap-2">
+                  <span className="text-xs font-mono text-purple-400 bg-purple-900/10 px-2 py-1 rounded">Python</span>
+                  <span className="text-xs font-mono text-purple-400 bg-purple-900/10 px-2 py-1 rounded">IoT</span>
+                  <span className="text-xs font-mono text-purple-400 bg-purple-900/10 px-2 py-1 rounded">Kafka</span>
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* ZAKŁADKA: CERTYFIKATY */}
+        {/* ZAKŁADKA: CERTYFIKATY (Teraz widoczne jako iframe!) */}
         {activeTab === 'certificates' && (
-          <section className="py-8 animate-fade-in">
-            <h2 className="text-3xl font-bold text-white mb-10 text-center">Certyfikaty</h2>
+          <div className="animate-fade-in">
+            <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+              <span className="text-purple-500">#</span> Certyfikaty i Szkolenia
+            </h2>
 
-            {/* Główne certyfikaty */}
-            <div className="flex flex-col md:flex-row gap-6 mb-10 items-center justify-center">
-              
-              {/* 1. IBM Data Engineering */}
-              <a
-                href="/images/DataEngineering.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full md:w-3/5 bg-gradient-to-br from-blue-900/40 to-blue-800/20 border border-blue-500/30 rounded-2xl p-8 hover:border-blue-400 transition-all group block text-center"
-              >
-                <div className="text-blue-400 mb-4">
-                  <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            {/* DWA GŁÓWNE CERTYFIKATY WIDOCZNE W DUŻYM FORMACIE */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              <div className="bg-[#121b2e] border border-gray-800 rounded-2xl p-4 flex flex-col">
+                <h3 className="text-xl font-bold text-blue-400 mb-4 px-2">IBM Data Engineering</h3>
+                {/* Wyświetlanie PDF */}
+                <div className="w-full h-[400px] bg-gray-900 rounded-xl overflow-hidden border border-gray-700">
+                  <iframe src="/images/DataEngineering.pdf#toolbar=0&navpanes=0" className="w-full h-full" title="IBM Certificate"></iframe>
                 </div>
-                <h3 className="text-3xl font-bold text-white group-hover:text-blue-300 transition-colors">IBM Data Engineering</h3>
-                <p className="text-gray-400 mt-2 text-lg">Professional Certificate</p>
-              </a>
+              </div>
 
-              {/* 2. Adobe Content Creator */}
-              <a
-                href="/images/MultimediaContentCreator.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full md:w-2/5 bg-gradient-to-br from-red-900/30 to-red-800/10 border border-red-500/20 rounded-2xl p-6 hover:border-red-400/50 transition-all group block text-center md:scale-95"
-              >
-                <div className="text-red-400 mb-3">
-                  <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              <div className="bg-[#121b2e] border border-gray-800 rounded-2xl p-4 flex flex-col">
+                <h3 className="text-xl font-bold text-purple-400 mb-4 px-2">Adobe Content Creator</h3>
+                {/* Wyświetlanie PDF */}
+                <div className="w-full h-[400px] bg-gray-900 rounded-xl overflow-hidden border border-gray-700">
+                  <iframe src="/images/MultimediaContentCreator.pdf#toolbar=0&navpanes=0" className="w-full h-full" title="Adobe Certificate"></iframe>
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-red-300 transition-colors">Adobe Content Creator</h3>
-                <p className="text-gray-400 text-sm mt-2">Professional Certificate</p>
-              </a>
-
-            </div>
-
-            {/* Lista pozostałych modułów technicznych */}
-            <div className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700/50">
-              <h4 className="text-lg font-semibold text-gray-300 mb-6 border-b border-gray-700/50 pb-3">Ukończone moduły i specjalizacje</h4>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[
-                  { name: "Databases and SQL for Data Science", file: "DatabasesandSQLforDataSciencewithPython.pdf" },
-                  { name: "Data Engineering Capstone Project", file: "DataEngineeringCapstoneProject.pdf" },
-                  { name: "Data Engineering Career Guide and Interview", file: "DataEngineeringCareerGuideandInterview.pdf" },
-                  { name: "Data Engineering Foundations", file: "DataEngineeringFundations.pdf" },
-                  { name: "Data Warehouse Fundamentals", file: "DataWarehouseFundamentals.pdf" },
-                  { name: "Design Fundamentals In AI", file: "DesignFundamentalsInAI.pdf" },
-                  { name: "ETL and Data Pipelines with Shell & Airflow", file: "ETLandDataPipelineswithShellAirflowand.pdf" },
-                  { name: "Generative AI Content Creation", file: "GenerativeAIContentCreation.pdf" },
-                  { name: "Generative AI Elevate your Data Engineering Career", file: "GenerativeAIElevateyourDataEngineeringCareer.pdf" },
-                  { name: "Generative AI Prompt Engineering Basics", file: "GenerativeAIPromptEngineeringBasics.pdf" },
-                  { name: "Hands-on Introduction to Linux Commands", file: "Hands-onIntroductiontoLinuxCommandsand.pdf" },
-                  { name: "Introduction to Big Data with Spark & Hadoop", file: "IntroductiontoBigDatawithSparkandHadoop.pdf" },
-                  { name: "Introduction to Data Engineering", file: "IntroductionToDataEngineering.pdf" },
-                  { name: "Introduction to NoSQL Databases", file: "IntroductiontoNoSQLDatabases.pdf" },
-                  { name: "Introduction to Relational Databases (RDBMS)", file: "IntroductiontoRelationalDatabases(RDBMS).pdf" },
-                  { name: "Machine Learning with Apache Spark", file: "MachineLearningwithApacheSpark.pdf" },
-                  { name: "Python for Data Science, AI & Development", file: "PythonforDataScienceAI&Development.pdf" },
-                  { name: "Python Project for Data Engineering", file: "PythonProjectforDataEngineering.pdf" },
-                  { name: "Relational Database Administration (DBA)", file: "RelationalDatabaseAdministration(DBA).pdf" },
-                  { name: "Social Media Content And Strategy", file: "SocialMediaContentAndStrategy.pdf" }
-                ].map((cert, index) => (
-                  <a
-                    key={index}
-                    href={`/images/${cert.file}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-700/50 transition-colors text-sm text-gray-400 hover:text-white border border-transparent hover:border-gray-600"
-                  >
-                    <svg className="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
-                    <span className="truncate">{cert.name}</span>
-                  </a>
-                ))}
               </div>
             </div>
-          </section>
+
+            {/* POZOSTAŁE CERTYFIKATY (Mniejsza siatka widocznych dokumentów) */}
+            <h3 className="text-xl font-bold mb-6 text-gray-300 border-b border-gray-800 pb-2">Ukończone moduły techniczne</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certificates.map((cert, index) => (
+                <div key={index} className="bg-[#121b2e] border border-gray-800/50 rounded-xl overflow-hidden hover:border-gray-500 transition-colors flex flex-col">
+                  <div className="p-3 bg-gray-900/50 border-b border-gray-800 text-sm font-semibold truncate text-gray-300" title={cert.name}>
+                    {cert.name}
+                  </div>
+                  {/* Mały podgląd PDF */}
+                  <div className="w-full h-[220px] bg-gray-950">
+                    <iframe src={`/images/${cert.file}#view=FitH&toolbar=0&navpanes=0`} className="w-full h-full pointer-events-auto" title={cert.name}></iframe>
+                  </div>
+                  <div className="p-3 bg-gray-900/50 border-t border-gray-800 text-center">
+                    <a href={`/images/${cert.file}`} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300 font-medium uppercase tracking-wider">
+                      Otwórz w pełnym oknie
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
         )}
+
       </main>
     </div>
   );
