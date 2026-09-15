@@ -1,4 +1,5 @@
 export const certificatesList = [
+  { name: "Adobe Multimedia Content Creator", file: "MultimediaContentCreator.pdf" },
   { name: "Databases and SQL for Data Science", file: "DatabasesandSQLforDataSciencewithPython.pdf" },
   { name: "Data Engineering Capstone Project", file: "DataEngineeringCapstoneProject.pdf" },
   { name: "Data Engineering Career Guide", file: "DataEngineeringCareerGuideandInterview.pdf" },
@@ -10,6 +11,8 @@ export const certificatesList = [
   { name: "Generative AI Elevate Career", file: "GenerativeAIElevateyourDataEngineeringCareer.pdf" },
   { name: "Generative AI Prompt Engineering", file: "GenerativeAIPromptEngineeringBasics.pdf" },
   { name: "Linux Commands", file: "Hands-onIntroductiontoLinuxCommandsand.pdf" },
+  { name: "Machine Learning Onramp", file: "machinelearingonramp.pdf" },
+  { name: "Simulink Onramp", file: "simulinkonramp.pdf" },
   { name: "Big Data with Spark & Hadoop", file: "IntroductiontoBigDatawithSparkandHadoop.pdf" },
   { name: "Introduction to Data Engineering", file: "IntroductionToDataEngineering.pdf" },
   { name: "Introduction to NoSQL Databases", file: "IntroductiontoNoSQLDatabases.pdf" },
@@ -51,7 +54,7 @@ export const translations = {
           role: "Intern (Application Development)",
           company: "PGE Energia Ciepła S.A.",
           period: "07/2026 – Obecnie",
-          logo: "pge.png", // <--- Dodane logo
+          logo: "pge.png",
           tasks: [
             "Zaprojektowałem i wdrożyłem od zera potoki danych (ETL) do masowej konwersji i ładowania dokumentów.",
             "Zbudowałem pełnoprawną aplikację webową wspierającą wyszukiwanie historycznych zapytań przetargowych oraz automatyzację obiegów akceptacyjnych.",
@@ -62,7 +65,7 @@ export const translations = {
           role: "Brand Promoter",
           company: "Media Expert",
           period: "03/2026 – 05/2026",
-          logo: "media-expert.png", // <--- Dodane logo
+          logo: "media-expert.png",
           tasks: [
             "Doradztwo techniczne i prowadzenie prezentacji zaawansowanych funkcji urządzeń klasy premium.",
             "Błyskawiczna analiza potrzeb klienta i przekładanie skomplikowanego języka technicznego na realne korzyści użytkowe."
@@ -72,7 +75,7 @@ export const translations = {
           role: "Maintenance Intern",
           company: "Schneider Electric",
           period: "07/2025 – 09/2025",
-          logo: "schneider.png", // <--- Dodane logo
+          logo: "schneider.png",
           tasks: [
             "Monitorowałem efektywność linii produkcyjnych, aktywnie uczestnicząc w codziennych spotkaniach operacyjnych SIM (Short Interval Management).",
             "Przeprowadziłem kompleksową inwentaryzację części zamiennych, zapewniając ciągłość procesów utrzymania ruchu.",
@@ -84,7 +87,7 @@ export const translations = {
           role: "Maintenance Intern",
           company: "Velvet Care",
           period: "07/2024 – 09/2024",
-          logo: "velvet.png", // <--- Dodane logo
+          logo: "velvet.png",
           tasks: [
             "Asystowałem przy nadzorze technicznym nad parkiem maszynowym i wspierałem inżynierów w naprawach mechanicznych linii produkcyjnych."
           ]
@@ -100,7 +103,7 @@ export const translations = {
         {
           category: "IoT & Przemysł 4.0",
           icon: "🤖",
-          items: ["Raspberry Pi 5", "ESP32", "ROS 2", "Lidar (RPLIDAR)", "Digital Twins", "MPU6050 Sensors"]
+          items: ["Raspberry Pi 5", "ESP32", "ROS 2", "Lidar (RPLIDAR)", "Digital Twins", "MPU6050 Sensors", "Uprawnienia SEP"]
         },
         {
           category: "Chmura, Narzędzia & DevOps",
@@ -121,10 +124,10 @@ export const translations = {
       modules: "Ukończone moduły techniczne",
       openFull: "Otwórz w pełnym oknie",
       currentList: [
-        { name: "Databricks Certified Data Engineer Associate", desc: "Intensywne przygotowania do egzaminu certyfikującego. Pogłębianie wiedzy z zakresu platformy Databricks, Apache Spark i nowoczesnych potoków danych (Data Lakehouse)." }
+        { name: "Databricks Certified Data Engineer Associate", desc: "Przygotowuję się do egzaminu certyfikującego na platformie Databricks." }
       ],
       futureList: [
-        { name: "Magisterka (Uczenie Maszynowe i Sztuczna Inteligencja / Inżynieria Danych)", desc: "Rozszerzenie kompetencji akademickich na studiach II stopnia na AGH. Cel: Zgłębienie zaawansowanych algorytmów analitycznych i architektury chmurowej." }
+        { name: "Studia magisterskie", desc: "Rozszerzenie kompetencji akademickich na studiach II stopnia na AGH. Poszerzenie wiedzy w zakresie pracy z danymi." }
       ]
     },
     projectsTab: {
@@ -134,40 +137,55 @@ export const translations = {
       viewAllBtn: "Zobacz wszystkie projekty ↗"
     },
     interestsTab: {
-      title: "Poza kodem",
-      intro: "Balans to podstawa. Długie godziny przed monitorem równoważę żelazną dyscypliną sportową i kreatywnymi projektami wideo.",
+      title: "Zainteresowania",
+      intro: "Poza pracą z danymi rozwijam inne pasje. Poniżej najważniejsze z nich:",
       sections: [
         {
           id: "sport",
           icon: "🏃‍♂️",
-          title: "Bieganie & Kalistenika",
-          desc: "Aktywność fizyczna to mój reset. Mam już za sobą ukończony półmaraton, a obecnie trenuję siłowo i kalistenicznie 2-3 razy w tygodniu. Mój aktualny cel to perfekcyjne opanowanie figur statycznych: Dragon Flag oraz Human Flag.",
+          title: "Bieganie i Kalistenika",
+          desc: "Miałem swój intensywny okres biegania. Przygotowywałem się na 20. Półmaraton Warszawski, który udało mi się ukończyć z czasem 2:00:05. Po nim musiałem wyleczyć kontuzję i powoli zbieram się do powrotu. Oprócz biegania fascynuje mnie kalistenika. Moim największym celem jest w przyszłości zrobić ludzką flagę.",
           tags: ["Półmaraton", "Dragon Flag", "Human Flag", "Trening siłowy"],
-          gallery: [null, null, null, null] // 4 miejsca na pliki
+          gallery: [null, null, null, null]
         },
         {
           id: "video",
           icon: "🎬",
-          title: "Montaż Wideo & YouTube",
-          desc: "Poza pisaniem kodu, zajmuję się tworzeniem treści wideo. Prowadzę własny kanał na YouTube, wykorzystując DaVinci Resolve do zaawansowanego montażu i korekcji barwniej.",
+          title: "Montaż wideo",
+          desc: "Epizodycznie, kiedy wpadnie mi do głowy fajny pomysł, lubię tworzyć materiały wideo na YouTube/TikTok. Używałem programów takich jak Shotcut, Adobe Premiere Pro, a obecnie DaVinci Resolve.",
           tags: ["DaVinci Resolve", "YouTube", "Color Grading", "Content Creation"],
-          gallery: [null, null, null, null]
+          gallery: [
+            'https://www.youtube.com/embed/09rXO7TtcRs?si=Y0iKfKv7PecQg1-7', 
+            'https://www.youtube.com/embed/NuZjSlZ6cP0?si=G_XVlMHTnfy-0eZk', 
+            'https://www.youtube.com/embed/0Kg0Xh1ycXc?si=ugKiZCiou5aG4Vcj', 
+            'interestsvideo2.png'
+          ]
         },
         {
           id: "gaming",
           icon: "🎮",
-          title: "Gaming & Sprzęt",
-          desc: "Gry to nie tylko rozrywka, ale też pretekst do testowania sprzętu i optymalizacji zasobów (np. dobieranie ustawień DLSS). Aktualnie ogrywam Marvel Rivals oraz strategiczne Kingdom Rush.",
+          title: "Gaming",
+          desc: "Gry są dla mnie formą resetu i aktywnego odpoczynku dla mózgu. Mam na swoim koncie wiele tytułów, od gier typu FPS, przez strategiczne, survivalowe, aż po przygodowe.",
           tags: ["Marvel Rivals", "Kingdom Rush", "PC Optimization"],
-          gallery: [null, null, null, null]
+          gallery: [
+            'interestsgame1.png', 
+            'interestsgame2.png', 
+            'interestsgame3.png', 
+            'interestsgame4.png'
+          ]
         },
         {
           id: "marvel",
           icon: "🦸‍♂️",
           title: "Uniwersum Marvela",
-          desc: "Jestem wiernym fanem uniwersum Marvela. Od komiksów po ekranizacje – cenię rozbudowane budowanie świata (world-building), co często inspiruje mnie przy projektowaniu architektury w IT.",
+          desc: "Jestem ogromnym fanem tego świata od lat. Każdy film, serial czy nawet trailer to ogromna ekscytacja, którą lubię się dzielić z innymi.",
           tags: ["MCU", "Komiksy", "Popkultura"],
-          gallery: [null, null, null, null]
+          gallery: [
+            'interestsmarvel4.gif', 
+            'interestsmarvel1.png', 
+            'interestsmarvel2.png', 
+            'interestsmarvel3.png'
+          ]
         }
       ]
     },
@@ -178,18 +196,18 @@ export const translations = {
         code: '<AGV Digital Twin />',
         color: 'from-blue-900/40 to-purple-900/40',
         tags: ['Python', 'IoT / Sensors', 'Kafka'],
-        teaser: 'Architektura Cyfrowego Bliźniaka dla autonomicznego pojazdu AGV. Integracja danych z czujników w czasie rzeczywistym (Kafka) oraz wizualizacja.',
+        teaser: 'Architektura Cyfrowego Bliźniaka dla autonomicznego pojazdu AGV. Integracja danych z czujników w czasie rzeczywistym oraz wizualizacja.',
         fullDesc: 'Rozbudowany projekt realizowany w ramach Koła Naukowego Sensor AGH. Głównym celem jest stworzenie wirtualnej reprezentacji (Cyfrowego Bliźniaka) wózka AGV. Architektura opiera się na ciągłym strumieniowaniu danych z czujników fizycznych za pomocą Apache Kafka, przetwarzaniu ich w Pythonie oraz mapowaniu w przestrzeni 3D. Projekt wymaga zestrojenia warstwy sprzętowej z nowoczesnymi rozwiązaniami Data Engineering.',
-        gallery: [] // <--- Przygotowane miejsce na wideo/zdjęcia
+        gallery: []
       },
       {
         id: 'pge',
         title: 'Historical Tender Processing',
         code: '<PGE Data Pipelines />',
         color: 'from-green-900/40 to-blue-900/40',
-        tags: ['Python', 'SQL', 'ETL Pipelines'],
-        teaser: 'Projekt komercyjny (PGE). Logika backendowa, zapytania SQL oraz potoki ETL do masowego przetwarzania danych o dawnych przetargach.',
-        fullDesc: 'Aplikacja stworzona podczas stażu w PGE Energia Ciepła S.A. Opracowałem i wdrożyłem od podstaw zautomatyzowane rurociągi danych (Data Pipelines) w Pythonie i SQL. System zajmuje się masową konwersją, czyszczeniem oraz ładowaniem dokumentacji z historycznych procedur przetargowych do centralnej bazy, umożliwiając szybkie przeszukiwanie zasobów przez pracowników biznesowych.',
+        tags: ['HTML / CSS', 'JavaScript', 'Python'],
+        teaser: 'Projekt komercyjny (PGE). Aplikacja webowa do przetwarzania i wyszukiwania danych o dawnych przetargach.',
+        fullDesc: 'Aplikacja stworzona podczas stażu w PGE Energia Ciepła S.A. Zbudowałem interfejs użytkownika oraz logikę aplikacji wykorzystując HTML, CSS oraz JavaScript. System zajmuje się prezentacją i wygodnym wyszukiwaniem dokumentacji z historycznych procedur przetargowych, umożliwiając szybki dostęp do zasobów przez pracowników biznesowych.',
         gallery: []
       },
       {
@@ -199,7 +217,7 @@ export const translations = {
         color: 'from-indigo-900/40 to-slate-800/40',
         tags: ['Automation', 'Matlab', 'Control Algorithms'],
         teaser: 'Zaawansowany projekt akademicki skupiający się na algorytmach sterowania dla modeli dźwigów suwnicowych (Matlab, Simulink).',
-        fullDesc: 'Projekt inżynieryjno-naukowy łączący teorię sterowania z automatyką przemysłową. Wykorzystując środowisko Matlab i Simulink, zaprojektowałem i zasymulowałem zachowanie modelu matematycznego dźwigu suwnicowego. Celem było wyeliminowanie wahań ładunku podczas dynamicznych zmian pozycji.',
+        fullDesc: 'Projekt inżynieryjno-naukowy łączący teorię sterowania z automatyką przemysłową. Brałem czynny udział w projektowaniu i tworzeniu skrzynki elektrycznej oraz pisałem program do sterowania suwnicą. Ponadto, wykorzystując środowisko Matlab i Simulink, zaprojektowałem i zasymulowałem zachowanie modelu matematycznego, którego celem było wyeliminowanie wahań ładunku podczas dynamicznych zmian pozycji.',
         gallery: []
       },
       {
@@ -312,7 +330,7 @@ export const translations = {
         {
           category: "IoT & Industry 4.0",
           icon: "🤖",
-          items: ["Raspberry Pi 5", "ESP32", "ROS 2", "Lidar (RPLIDAR)", "Digital Twins", "MPU6050 Sensors"]
+          items: ["Raspberry Pi 5", "ESP32", "ROS 2", "Lidar (RPLIDAR)", "Digital Twins", "MPU6050 Sensors", "SEP Electrical License"]
         },
         {
           category: "Cloud, Tools & DevOps",
@@ -333,10 +351,10 @@ export const translations = {
       modules: "Completed technical modules",
       openFull: "Open in full window",
       currentList: [
-        { name: "Databricks Certified Data Engineer Associate", desc: "Intensive preparation for the certification exam. Deepening knowledge of the Databricks platform, Apache Spark, and modern Data Lakehouse architectures." }
+        { name: "Databricks Certified Data Engineer Associate", desc: "I am preparing for the Databricks certification exam." }
       ],
       futureList: [
-        { name: "Master's Degree (Machine Learning & AI / Data Engineering)", desc: "Expanding academic competencies through graduate studies at AGH University. Goal: Master advanced analytical algorithms and cloud architectures." }
+        { name: "Master's Degree", desc: "Expanding academic competencies through graduate studies at AGH University. Broadening knowledge in the field of working with data." }
       ]
     },
     projectsTab: {
@@ -346,40 +364,55 @@ export const translations = {
       viewAllBtn: "View all projects ↗"
     },
     interestsTab: {
-      title: "Beyond the Code",
-      intro: "Balance is key. I counterbalance long hours in front of the screen with strict sports discipline and creative video projects.",
+      title: "Interests",
+      intro: "Beyond working with data, I pursue other passions. Below are the most important ones:",
       sections: [
         {
           id: "sport",
           icon: "🏃‍♂️",
           title: "Running & Calisthenics",
-          desc: "Physical activity is my reset. I have already completed a half-marathon, and currently, I train strength and calisthenics 2-3 times a week. My current goal is to master static holds: the Dragon Flag and Human Flag.",
+          desc: "I had an intensive running phase. I prepared for the 20th Warsaw Half Marathon, which I successfully completed with a time of 2:00:05. Afterwards, I had to heal an injury and I'm slowly getting ready to return. Besides running, I am fascinated by calisthenics. My biggest goal for the future is to achieve the human flag.",
           tags: ["Half-Marathon", "Dragon Flag", "Human Flag", "Strength Training"],
           gallery: [null, null, null, null]
         },
         {
           id: "video",
           icon: "🎬",
-          title: "Video Editing & YouTube",
-          desc: "Besides coding, I create video content. I run my own YouTube channel, using DaVinci Resolve for advanced editing and color grading.",
+          title: "Video Editing",
+          desc: "Occasionally, when a cool idea pops into my head, I like to create video content for YouTube/TikTok. I have used programs like Shotcut, Adobe Premiere Pro, and currently DaVinci Resolve.",
           tags: ["DaVinci Resolve", "YouTube", "Color Grading", "Content Creation"],
-          gallery: [null, null, null, null]
+          gallery: [
+            'https://www.youtube.com/embed/09rXO7TtcRs?si=Y0iKfKv7PecQg1-7', 
+            'https://www.youtube.com/embed/NuZjSlZ6cP0?si=G_XVlMHTnfy-0eZk', 
+            'https://www.youtube.com/embed/0Kg0Xh1ycXc?si=ugKiZCiou5aG4Vcj', 
+            'interestsvideo2.png'
+          ]
         },
         {
           id: "gaming",
           icon: "🎮",
-          title: "Gaming & Hardware",
-          desc: "Gaming is not just entertainment, but an excuse to test hardware and optimize resources (like tweaking DLSS settings). Currently playing Marvel Rivals and the strategic Kingdom Rush.",
+          title: "Gaming",
+          desc: "Games are a form of reset and active rest for my brain. I have played many titles, ranging from FPS and strategy games, through survival, to adventure games.",
           tags: ["Marvel Rivals", "Kingdom Rush", "PC Optimization"],
-          gallery: [null, null, null, null]
+          gallery: [
+            'interestsgame1.png', 
+            'interestsgame2.png', 
+            'interestsgame3.png', 
+            'interestsgame4.png'
+          ]
         },
         {
           id: "marvel",
           icon: "🦸‍♂️",
           title: "Marvel Universe",
-          desc: "I am a huge fan of the Marvel Universe. From comics to movies, I appreciate intricate world-building, which often inspires my IT architecture designs.",
+          desc: "I have been a huge fan of this world for years. Every movie, series, or even trailer brings huge excitement that I love to share with others.",
           tags: ["MCU", "Comics", "Pop Culture"],
-          gallery: [null, null, null, null]
+          gallery: [
+            'interestsmarvel4.gif', 
+            'interestsmarvel1.png', 
+            'interestsmarvel2.png', 
+            'interestsmarvel3.png'
+          ]
         }
       ]
     },
@@ -390,7 +423,7 @@ export const translations = {
         code: '<AGV Digital Twin />',
         color: 'from-blue-900/40 to-purple-900/40',
         tags: ['Python', 'IoT / Sensors', 'Kafka'],
-        teaser: 'Digital Twin architecture for an AGV. Real-time sensor data integration (Kafka) and visualization.',
+        teaser: 'Digital Twin architecture for an AGV. Real-time sensor data integration and visualization.',
         fullDesc: 'An extensive project developed within the Sensor AGH Science Club. The main goal is to create a virtual representation (Digital Twin) of an AGV cart. The architecture is based on continuous streaming of data from physical sensors using Apache Kafka, processing it in Python, and mapping it in 3D space.',
         gallery: []
       },
@@ -399,9 +432,9 @@ export const translations = {
         title: 'Historical Tender Processing',
         code: '<PGE Data Pipelines />',
         color: 'from-green-900/40 to-blue-900/40',
-        tags: ['Python', 'SQL', 'ETL Pipelines'],
-        teaser: 'Commercial project (PGE). Backend logic, SQL queries, and ETL pipelines for mass processing of historical tender data.',
-        fullDesc: 'Application created during an internship at PGE Polish Energy Group. I designed and implemented automated data pipelines from scratch in Python and SQL. The system handles mass conversion, cleaning, and loading of documentation from historical tender procedures into a central database, enabling quick searches for business users.',
+        tags: ['HTML / CSS', 'JavaScript', 'Python'],
+        teaser: 'Commercial project (PGE). Web application for processing and searching historical tender data.',
+        fullDesc: 'Application created during an internship at PGE Polish Energy Group. I built the user interface and application logic using HTML, CSS, and JavaScript. The system handles the presentation and convenient searching of documentation from historical tender procedures, enabling quick access to resources for business users.',
         gallery: []
       },
       {
@@ -411,7 +444,7 @@ export const translations = {
         color: 'from-indigo-900/40 to-slate-800/40',
         tags: ['Automation', 'Matlab', 'Control Algorithms'],
         teaser: 'Advanced academic project focusing on control algorithms for overhead crane models (Matlab, Simulink).',
-        fullDesc: 'An engineering and scientific project combining control theory with industrial automation. Using Matlab and Simulink, I designed and simulated the behavior of a mathematical model of an overhead crane. The goal was to eliminate payload sway during dynamic position changes.',
+        fullDesc: 'An engineering and scientific project combining control theory with industrial automation. I actively participated in designing and building the electrical box and wrote the crane control program. Furthermore, using Matlab and Simulink, I designed and simulated the behavior of a mathematical model aimed at eliminating payload sway during dynamic position changes.',
         gallery: []
       },
       {

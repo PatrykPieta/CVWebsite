@@ -25,7 +25,7 @@ export default function Development() {
 
         <div>
           <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-            <span className="text-purple-500">🚀</span> {t.devTab.titleFuture}
+            <span className="text-purple-500"></span> {t.devTab.titleFuture}
           </h2>
           <div className="space-y-4">
             {t.devTab.futureList.map((item, idx) => (
@@ -52,7 +52,7 @@ export default function Development() {
           <div className={`${theme.cardBg} border ${theme.borderColor} rounded-3xl p-6 shadow-sm`}>
             <h3 className="text-xl font-bold text-purple-500 mb-6">Adobe Content Creator</h3>
             <div className={`w-full h-[300px] ${isDark ? 'bg-gray-900 border-gray-700' : 'bg-slate-100 border-slate-200'} rounded-2xl overflow-hidden border`}>
-              <iframe src="/images/MultimediaContentCreator.pdf#toolbar=0&navpanes=0" className="w-full h-full" title="Adobe Certificate"></iframe>
+              <iframe src="/images/AdobeContentCreator.pdf#toolbar=0&navpanes=0" className="w-full h-full" title="Adobe Certificate"></iframe>
             </div>
           </div>
         </div>

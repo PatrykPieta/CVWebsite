@@ -4,7 +4,7 @@ import { AppContext } from '../App';
 export default function Interests() {
   const { isDark, t, theme } = useContext(AppContext);
 
-  // Funkcja pomagająca rozpoznać czy plik to video
+  // Funkcja rozpoznająca pliki wideo z folderu images
   const isVideo = (filename) => {
     if (!filename) return false;
     return filename.endsWith('.mp4') || filename.endsWith('.webm');
@@ -23,12 +23,11 @@ export default function Interests() {
         </p>
       </div>
 
-      {/* Lista Zainteresowań układana w pionie (jeden pod drugim) */}
+      {/* Lista Sekcji */}
       <div className="space-y-16">
         {t.interestsTab.sections.map((section) => (
           <div key={section.id} className={`${theme.cardBg} border ${theme.borderColor} rounded-3xl p-6 md:p-10 shadow-sm flex flex-col gap-8`}>
             
-            {/* Tytuł i opis sekcji */}
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-4xl">{section.icon}</span>
@@ -49,15 +48,25 @@ export default function Interests() {
               </div>
             </div>
 
-            {/* Siatka 4 kafelków (Miejsce na media) */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* ZMIANA TUTAJ: Siatka 2x2 (grid-cols-1 na telefonach, grid-cols-2 na komputerach) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {section.gallery.map((mediaFile, idx) => (
                 <div 
                   key={idx} 
-                  className={`aspect-square rounded-2xl overflow-hidden border ${theme.borderColor} ${isDark ? 'bg-gray-900/40' : 'bg-slate-100/50'} flex items-center justify-center relative group`}
+                  // ZMIANA TUTAJ: aspect-video (16:9) zamiast aspect-square (1:1)
+                  className={`aspect-video rounded-2xl overflow-hidden border ${theme.borderColor} ${isDark ? 'bg-gray-900/60' : 'bg-slate-200/50'} flex items-center justify-center relative group bg-black/5 shadow-md`}
                 >
                   {mediaFile ? (
-                    // Wariant 1: Mamy plik (ZDJĘCIE LUB FILM)
+                    mediaFile.includes('youtube.com/embed') ? (
+                      <iframe 
+                        src={mediaFile} 
+                        title={`YouTube video ${idx}`} 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowFullScreen
+                        className="w-full h-full object-cover"
+                      ></iframe>
+                    ) : 
                     isVideo(mediaFile) ? (
                       <video 
                         src={`/images/${mediaFile}`} 
@@ -65,22 +74,22 @@ export default function Interests() {
                         loop 
                         muted 
                         playsInline 
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                       />
-                    ) : (
+                    ) : 
+                    (
                       <img 
                         src={`/images/${mediaFile}`} 
                         alt={`${section.title} ${idx + 1}`} 
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
+                        className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500" 
                       />
                     )
                   ) : (
-                    // Wariant 2: Null (Puste pole / Placeholder)
                     <div className="flex flex-col items-center justify-center text-gray-500/30">
-                      <svg className="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-10 h-10 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                       </svg>
-                      <span className="text-[10px] font-mono tracking-widest uppercase">Miejsce na plik</span>
+                      <span className="text-xs font-mono tracking-widest uppercase">Miejsce na plik</span>
                     </div>
                   )}
                 </div>
