@@ -26,7 +26,7 @@ export const certificatesList = [
 
 export const translations = {
   PL: {
-    banner: "Strona w trakcie aktywnej rozbudowy pod kątem rekrutacji (Data Engineering & SQL). Wkrótce kolejne aktualizacje!",
+    banner: "Strona w trakcie aktywnej rozbudowy pod kątem rekrutacji. Wkrótce kolejne aktualizacje!",
     nav: { home: "Start", exp: "Doświadczenie", projects: "Projekty", dev: "Rozwój", interests: "Zainteresowania" },
     hero: {
       tagline: "INŻYNIER DANYCH & STUDENT PRZEMYSŁU 4.0",
@@ -38,13 +38,13 @@ export const translations = {
       techTitle: "TECHNOLOGIE, Z KTÓRYMI PRACUJĘ"
     },
     about: {
-      title: "Pasjonuje mnie tworzenie cyfrowych rozwiązań",
-      desc: "Jako student AGH (Przemysł 4.0) z doświadczeniem komercyjnym z PGE, pomagam transformować surowe dane w użyteczne informacje poprzez czysty, wydajny i zautomatyzowany kod.",
+      title: "Solidne podstawy, ciągły rozwój",
+      desc: "Jestem studentem III roku kierunku Przemysł 4.0 na AGH. Łączę inżynierskie podejście do rozwiązywania problemów z kompetencjami IT. Obecnie zdobywam pierwsze doświadczenia komercyjne, a wolny czas inwestuję w rozwój twardych umiejętności (Python, SQL) poprzez certyfikacje i własne projekty.",
       stats: [
-        { label: "Doświadczenie (Staż)", value: "1+", icon: "📅" },
-        { label: "Ukończonych Certyfikatów", value: "20+", icon: "🎓" },
-        { label: "Zautomatyzowanych Procesów", value: "Wiele", icon: "⚙️" },
-        { label: "Pasja do Danych", value: "100%", icon: "💡" }
+        { label: "Odbyte staże i praktyki", value: "3", icon: "🏢" },
+        { label: "Ukończonych certyfikatów", value: "20+", icon: "🎓" },
+        { label: "Zrealizowane projekty", value: "6+", icon: "💻" },
+        { label: "Rok studiów (AGH)", value: "III", icon: "📚" }
       ]
     },
     expTab: {
@@ -121,6 +121,7 @@ export const translations = {
       titleCurrent: "Aktualnie w realizacji",
       titleFuture: "Plany na najbliższą przyszłość",
       titleCerts: "Edukacja, Certyfikaty i Szkolenia",
+      titleConf: "Wystąpienia i Publikacje Naukowe",
       modules: "Ukończone moduły techniczne",
       openFull: "Otwórz w pełnym oknie",
       currentList: [
@@ -128,6 +129,16 @@ export const translations = {
       ],
       futureList: [
         { name: "Studia magisterskie", desc: "Rozszerzenie kompetencji akademickich na studiach II stopnia na AGH. Poszerzenie wiedzy w zakresie pracy z danymi." }
+      ],
+      conferences: [
+        { 
+          name: "Międzynarodowa Konferencja Naukowa w Bułgarii", 
+          topic: "Method and Materials", 
+          desc: "Prelekcja na międzynarodowej konferencji w Bułgarii. Wystąpienie w ramach panelu 'Method and Materials', skupiające się na szczegółowym omówieniu metodologii badawczej, wykorzystanych materiałów oraz sposobów ich analizy.",
+          articleFile: "bulgaria_article.pdf",
+          presentationFile: "bulgaria_presentation.ppt", // ZMIENIONE NA .ppt
+          image: "bulgaria_photo.png"
+        }
       ]
     },
     projectsTab: {
@@ -195,19 +206,39 @@ export const translations = {
         title: 'AGV Digital Twin',
         code: '<AGV Digital Twin />',
         color: 'from-blue-900/40 to-purple-900/40',
-        tags: ['Python', 'IoT / Sensors', 'Kafka'],
-        teaser: 'Architektura Cyfrowego Bliźniaka dla autonomicznego pojazdu AGV. Integracja danych z czujników w czasie rzeczywistym oraz wizualizacja.',
-        fullDesc: 'Rozbudowany projekt realizowany w ramach Koła Naukowego Sensor AGH. Głównym celem jest stworzenie wirtualnej reprezentacji (Cyfrowego Bliźniaka) wózka AGV. Architektura opiera się na ciągłym strumieniowaniu danych z czujników fizycznych za pomocą Apache Kafka, przetwarzaniu ich w Pythonie oraz mapowaniu w przestrzeni 3D. Projekt wymaga zestrojenia warstwy sprzętowej z nowoczesnymi rozwiązaniami Data Engineering.',
+        tags: ['Edge Computing', 'Apache Spark', 'Kafka', 'FastAPI', 'Three.js'],
+        teaser: 'Zaawansowany system cyfrowego bliźniaka wózka AGV. Kompletny rurociąg danych End-to-End wykorzystujący przetwarzanie strumieniowe.',
+        fullDesc: 'Zaawansowany projekt inżynieryjny realizowany w ramach Koła Naukowego Sensor AGH. Głównym celem było stworzenie od podstaw wirtualnej reprezentacji (Cyfrowego Bliźniaka) wózka AGV, unikając przy tym ciężkich, gotowych symulatorów robotycznych. Całość oparta jest na architekturze Edge Computing, przetwarzaniu strumieniowym oraz modelu Event-Driven. Zaprojektowałem i wdrożyłem pełny rurociąg danych (End-to-End Data Pipeline) w skonteneryzowanym środowisku (Docker Compose). Warstwa brzegowa (Edge) korzysta z autorskiego skryptu w Pythonie, który wylicza kinematykę kół Mecanum i symuluje zaszumione dane z czujników (prąd, temperatura, IMU). Strumień ten trafia na szynę Apache Kafka, a następnie jest analizowany w czasie rzeczywistym przez Apache Spark (PySpark) pod kątem anomalii, realizując założenia Predictive Maintenance. Przetworzone wyniki przesyłane są przez backend w FastAPI (WebSockets) do lekkiej aplikacji webowej opartej na Three.js. Dzięki zastosowaniu interpolacji liniowej (Lerp) model 3D porusza się niezwykle płynnie, a całość dopełniają osadzone wykresy analityczne z Grafany.',
+        gallery: ['agv3.png', 'agv1.png', 'agv2.png']
+      },
+      {
+        id: 'pge_baza',
+        title: 'Baza Danych',
+        code: '<Database />',
+        color: 'from-green-900/40 to-emerald-900/40',
+        tags: ['Work in progress'],
+        teaser: 'Szczegóły projektu i wykorzystane technologie wkrótce.',
+        fullDesc: 'Opis projektu jest w trakcie przygotowywania...',
         gallery: []
       },
       {
-        id: 'pge',
-        title: 'Historical Tender Processing',
-        code: '<PGE Data Pipelines />',
-        color: 'from-green-900/40 to-blue-900/40',
-        tags: ['HTML / CSS', 'JavaScript', 'Python'],
-        teaser: 'Projekt komercyjny (PGE). Aplikacja webowa do przetwarzania i wyszukiwania danych o dawnych przetargach.',
-        fullDesc: 'Aplikacja stworzona podczas stażu w PGE Energia Ciepła S.A. Zbudowałem interfejs użytkownika oraz logikę aplikacji wykorzystując HTML, CSS oraz JavaScript. System zajmuje się prezentacją i wygodnym wyszukiwaniem dokumentacji z historycznych procedur przetargowych, umożliwiając szybki dostęp do zasobów przez pracowników biznesowych.',
+        id: 'pge_sciezka',
+        title: 'Ścieżka Decyzyjna',
+        code: '<Decision Path />',
+        color: 'from-teal-900/40 to-blue-900/40',
+        tags: ['Work in progress'],
+        teaser: 'Szczegóły projektu i wykorzystane technologie wkrótce.',
+        fullDesc: 'Opis projektu jest w trakcie przygotowywania...',
+        gallery: []
+      },
+      {
+        id: 'pge_raporty',
+        title: 'Narzędzie Raportowe',
+        code: '<Reporting Tool />',
+        color: 'from-blue-900/40 to-indigo-900/40',
+        tags: ['Work in progress'],
+        teaser: 'Szczegóły projektu i wykorzystane technologie wkrótce.',
+        fullDesc: 'Opis projektu jest w trakcie przygotowywania...',
         gallery: []
       },
       {
@@ -215,40 +246,40 @@ export const translations = {
         title: 'Cranes Control System',
         code: '<Cranes Control System />',
         color: 'from-indigo-900/40 to-slate-800/40',
-        tags: ['Automation', 'Matlab', 'Control Algorithms'],
-        teaser: 'Zaawansowany projekt akademicki skupiający się na algorytmach sterowania dla modeli dźwigów suwnicowych (Matlab, Simulink).',
-        fullDesc: 'Projekt inżynieryjno-naukowy łączący teorię sterowania z automatyką przemysłową. Brałem czynny udział w projektowaniu i tworzeniu skrzynki elektrycznej oraz pisałem program do sterowania suwnicą. Ponadto, wykorzystując środowisko Matlab i Simulink, zaprojektowałem i zasymulowałem zachowanie modelu matematycznego, którego celem było wyeliminowanie wahań ładunku podczas dynamicznych zmian pozycji.',
-        gallery: []
+        tags: ['Automation', 'Hardware', 'Control Algorithms'],
+        teaser: 'Zaawansowany projekt akademicki skupiający się na projektowaniu skrzynki elektrycznej i programowaniu sterowania dla modeli dźwigów suwnicowych.',
+        fullDesc: 'Projekt inżynieryjno-naukowy łączący teorię sterowania z automatyką przemysłową. Brałem czynny udział w projektowaniu i fizycznym tworzeniu skrzynki elektrycznej, a także pisałem program odpowiedzialny za sterowanie suwnicą.',
+        gallery: ['suwnica.png']
       },
       {
         id: 'portfolio',
         title: 'Personal Portfolio SPA',
         code: '<DataCraft Portfolio />',
         color: 'from-purple-900/40 to-pink-900/40',
-        tags: ['React', 'Tailwind CSS', 'SPA'],
-        teaser: 'Moja własna strona-wizytówka zbudowana jako Single Page Application. Wykorzystuje architekturę Reacta i system routingu stanów.',
-        fullDesc: 'Strona, którą właśnie przeglądasz, to autorski projekt zbudowany w nowoczesnym stosie frontendowym (React + Tailwind CSS). Zamiast polegać na gotowych szablonach z WordPressa, stworzyłem w pełni responsywną aplikację SPA (Single Page Application) ze zintegrowanym systemem motywów (Dark/Light), tłumaczeniami (PL/EN) oraz renderowaniem PDF-ów.',
-        gallery: []
+        tags: ['React', 'Tailwind CSS', 'Vite', 'SPA'],
+        teaser: 'Moja własna strona-wizytówka zbudowana jako Single Page Application. Zaawansowany ekosystem React i zarządzanie stanem.',
+        fullDesc: 'Strona, którą właśnie przeglądasz, to autorski projekt zbudowany od podstaw bez użycia gotowych szablonów typu WordPress. Aplikacja została stworzona w architekturze Single Page Application (SPA) przy użyciu biblioteki React oraz Vite dla maksymalnej wydajności. Za warstwę wizualną odpowiada framework Tailwind CSS, który pozwolił na stworzenie w pełni responsywnego interfejsu z płynnym systemem zmiany motywów (Dark/Light). Projekt wykorzystuje zaawansowany routing sieciowy (react-router-dom), dynamiczne zarządzanie stanem aplikacji poprzez Context API oraz system wielojęzyczności (PL/EN).',
+        gallery: ['jastrona1.png', 'jastrona2.png']
       },
       {
         id: 'photo1',
-        title: 'Portfolio Fotografa #1',
-        code: '<Photo Portfolio />',
+        title: 'Portfolio: Fotograf Sportowy',
+        code: '<Justyna Portfolio />',
         color: 'from-orange-900/40 to-red-900/40',
-        tags: ['Web Design', 'UI/UX'],
-        teaser: 'Wkrótce... Responsywna strona wizytówka-galeria tworzona na zlecenie znajomego fotografa.',
-        fullDesc: 'Projekt w trakcie realizacji. Będzie to nowoczesna, minimalistyczna galeria zdjęć z optymalizacją ładowania grafik pod kątem urządzeń mobilnych.',
-        gallery: []
+        tags: ['Web Design', 'UI/UX', 'CSS Grid'],
+        teaser: 'Dynamiczna wizualizacja strony dla fotografki i twórczyni wideo, specjalizującej się w ujęciach sportowych.',
+        fullDesc: 'Projekt nowoczesnej strony internetowej dla Justyny – fotografki i twórczyni wideo specjalizującej się w dynamicznych ujęciach sportowych. Interfejs został zaprojektowany tak, aby w pierwszej kolejności eksponować ruch i energię płynącą z materiałów wideo oraz zdjęć z akcji. Zastosowano przemyślany system siatek (grid) do eleganckiej ekspozycji multimediów. Uwaga: Prezentowana wersja to na razie w pełni funkcjonalna wizualizacja w kodzie (mockup). Docelowo projekt zostanie wdrożony jako profesjonalna strona z własną domeną i dedykowanym hostingiem dla klienta.',
+        gallery: ['justynastrona1.png', 'justynastrona2.png']
       },
       {
         id: 'photo2',
-        title: 'Portfolio Fotografa #2',
-        code: '<Photo Portfolio />',
+        title: 'Portfolio: Fotografia Artystyczna',
+        code: '<Mikołaj Portfolio />',
         color: 'from-cyan-900/40 to-blue-900/40',
-        tags: ['Web Design', 'UI/UX'],
-        teaser: 'Wkrótce... Spersonalizowana przestrzeń sieciowa do prezentacji sesji zdjęciowych dla zaprzyjaźnionego artysty.',
-        fullDesc: 'Projekt w fazie planowania układu (wireframing). Strona będzie zawierała dynamiczny system siatki (masonry layout) do eleganckiej ekspozycji portfolio fotograficznego.',
-        gallery: []
+        tags: ['Web Design', 'Masonry Layout', 'UI/UX'],
+        teaser: 'Klimatyczna i mroczna wizualizacja portfolio sieciowego dla artysty fotografa.',
+        fullDesc: 'Zindywidualizowana przestrzeń sieciowa stworzona dla Mikołaja, fotografa o mocno artystycznym zacięciu. Strona skupia się na mroczniejszym, klimatycznym designie, który idealnie współgra z jego portfolio obejmującym fotografię artystyczną, relacje z koncertów oraz wydarzeń imprezowych. Zastosowano tu asymetryczny układ galerii (masonry layout), który pozwala na wyeksponowanie zdjęć o różnych proporcjach. Uwaga: Prezentowana wersja to na ten moment zaawansowana wizualizacja interfejsu. Docelowo witryna zostanie przeniesiona na docelowy, profesjonalny hosting wraz z podpięciem autorskiej domeny internetowej.',
+        gallery: ['mikolajstrona1.png']
       }
     ]
   },
@@ -265,13 +296,13 @@ export const translations = {
       techTitle: "TECHNOLOGIES I WORK WITH"
     },
     about: {
-      title: "I'm passionate about creating digital solutions",
-      desc: "As an AGH student (Industry 4.0) with commercial experience from PGE, I help transform raw data into actionable insights through clean, efficient, and automated code.",
+      title: "Solid foundations, continuous growth",
+      desc: "I am a 3rd-year Industry 4.0 student at AGH University. I combine an engineering approach to problem-solving with IT competencies. Currently, I am gaining my first commercial experience and investing my free time in developing hard skills (Python, SQL) through certifications and personal projects.",
       stats: [
-        { label: "Experience (Intern)", value: "1+", icon: "📅" },
-        { label: "Certificates Completed", value: "20+", icon: "🎓" },
-        { label: "Automated Processes", value: "Multiple", icon: "⚙️" },
-        { label: "Passion for Data", value: "100%", icon: "💡" }
+        { label: "Internships completed", value: "3", icon: "🏢" },
+        { label: "Certificates achieved", value: "20+", icon: "🎓" },
+        { label: "Projects completed", value: "6+", icon: "💻" },
+        { label: "Year of study (AGH)", value: "3rd", icon: "📚" }
       ]
     },
     expTab: {
@@ -348,6 +379,7 @@ export const translations = {
       titleCurrent: "Currently Learning",
       titleFuture: "Upcoming Plans",
       titleCerts: "Education & Certifications",
+      titleConf: "Academic Conferences & Publications",
       modules: "Completed technical modules",
       openFull: "Open in full window",
       currentList: [
@@ -355,6 +387,16 @@ export const translations = {
       ],
       futureList: [
         { name: "Master's Degree", desc: "Expanding academic competencies through graduate studies at AGH University. Broadening knowledge in the field of working with data." }
+      ],
+      conferences: [
+        { 
+          name: "International Academic Conference in Bulgaria", 
+          topic: "Method and Materials", 
+          desc: "Academic presentation at an international conference in Bulgaria. The talk, part of the 'Method and Materials' panel, focused on a detailed discussion of research methodology, materials used, and analysis methods.",
+          articleFile: "bulgaria_article.pdf",
+          presentationFile: "bulgaria_presentation.ppt", // ZMIENIONE NA .ppt
+          image: "bulgaria_photo.png"
+        }
       ]
     },
     projectsTab: {
@@ -422,19 +464,39 @@ export const translations = {
         title: 'AGV Digital Twin',
         code: '<AGV Digital Twin />',
         color: 'from-blue-900/40 to-purple-900/40',
-        tags: ['Python', 'IoT / Sensors', 'Kafka'],
-        teaser: 'Digital Twin architecture for an AGV. Real-time sensor data integration and visualization.',
-        fullDesc: 'An extensive project developed within the Sensor AGH Science Club. The main goal is to create a virtual representation (Digital Twin) of an AGV cart. The architecture is based on continuous streaming of data from physical sensors using Apache Kafka, processing it in Python, and mapping it in 3D space.',
+        tags: ['Edge Computing', 'Apache Spark', 'Kafka', 'FastAPI', 'Three.js'],
+        teaser: 'Advanced Digital Twin system for an AGV. An End-to-End data pipeline utilizing real-time stream processing.',
+        fullDesc: 'An advanced engineering project developed within the Sensor AGH Science Club. The main goal was to build a virtual representation (Digital Twin) of an AGV cart from scratch, bypassing heavy, off-the-shelf robotics simulators. The entire system relies on Edge Computing, stream processing, and an Event-Driven architecture. I designed and deployed a complete End-to-End Data Pipeline within a containerized environment (Docker Compose). The edge layer uses a custom Python script that calculates Mecanum wheel kinematics and simulates noisy sensor data (current, temperature, IMU). This data stream is ingested by Apache Kafka and then analyzed in real-time by Apache Spark (PySpark) to detect anomalies, fulfilling Predictive Maintenance objectives. The processed results are served via a FastAPI backend (WebSockets) to a lightweight web application based on Three.js. Thanks to linear interpolation (Lerp) algorithms, the 3D model moves smoothly, and the entire setup is complemented by embedded analytical dashboards from Grafana.',
+        gallery: ['agv3.png', 'agv1.png', 'agv2.png']
+      },
+      {
+        id: 'pge_baza',
+        title: 'Database',
+        code: '<Database />',
+        color: 'from-green-900/40 to-emerald-900/40',
+        tags: ['Work in progress'],
+        teaser: 'Project details and technologies coming soon.',
+        fullDesc: 'Project description is currently being prepared...',
         gallery: []
       },
       {
-        id: 'pge',
-        title: 'Historical Tender Processing',
-        code: '<PGE Data Pipelines />',
-        color: 'from-green-900/40 to-blue-900/40',
-        tags: ['HTML / CSS', 'JavaScript', 'Python'],
-        teaser: 'Commercial project (PGE). Web application for processing and searching historical tender data.',
-        fullDesc: 'Application created during an internship at PGE Polish Energy Group. I built the user interface and application logic using HTML, CSS, and JavaScript. The system handles the presentation and convenient searching of documentation from historical tender procedures, enabling quick access to resources for business users.',
+        id: 'pge_sciezka',
+        title: 'Decision Path',
+        code: '<Decision Path />',
+        color: 'from-teal-900/40 to-blue-900/40',
+        tags: ['Work in progress'],
+        teaser: 'Project details and technologies coming soon.',
+        fullDesc: 'Project description is currently being prepared...',
+        gallery: []
+      },
+      {
+        id: 'pge_raporty',
+        title: 'Reporting Tool',
+        code: '<Reporting Tool />',
+        color: 'from-blue-900/40 to-indigo-900/40',
+        tags: ['Work in progress'],
+        teaser: 'Project details and technologies coming soon.',
+        fullDesc: 'Project description is currently being prepared...',
         gallery: []
       },
       {
@@ -442,40 +504,40 @@ export const translations = {
         title: 'Cranes Control System',
         code: '<Cranes Control System />',
         color: 'from-indigo-900/40 to-slate-800/40',
-        tags: ['Automation', 'Matlab', 'Control Algorithms'],
-        teaser: 'Advanced academic project focusing on control algorithms for overhead crane models (Matlab, Simulink).',
-        fullDesc: 'An engineering and scientific project combining control theory with industrial automation. I actively participated in designing and building the electrical box and wrote the crane control program. Furthermore, using Matlab and Simulink, I designed and simulated the behavior of a mathematical model aimed at eliminating payload sway during dynamic position changes.',
-        gallery: []
+        tags: ['Automation', 'Hardware', 'Control Algorithms'],
+        teaser: 'Advanced academic project focusing on electrical box design and control programming for overhead crane models.',
+        fullDesc: 'An engineering and scientific project combining control theory with industrial automation. I actively participated in designing and physically building the electrical box, as well as writing the program responsible for crane control.',
+        gallery: ['suwnica.png']
       },
       {
         id: 'portfolio',
         title: 'Personal Portfolio SPA',
         code: '<DataCraft Portfolio />',
         color: 'from-purple-900/40 to-pink-900/40',
-        tags: ['React', 'Tailwind CSS', 'SPA'],
-        teaser: 'My own portfolio website built as a Single Page Application. It uses React architecture and state routing.',
-        fullDesc: 'The website you are currently browsing is an original project built on a modern frontend stack (React + Tailwind CSS). Instead of relying on ready-made WordPress templates, I created a fully responsive SPA with an integrated theme system (Dark/Light), translations (PL/EN), and PDF rendering.',
-        gallery: []
+        tags: ['React', 'Tailwind CSS', 'Vite', 'SPA'],
+        teaser: 'My own portfolio website built as a Single Page Application. Features React architecture and state routing.',
+        fullDesc: 'The website you are currently browsing is an original project built from scratch without using pre-made templates like WordPress. The application was created in a Single Page Application (SPA) architecture using React and Vite for maximum performance. The visual layer is powered by Tailwind CSS, allowing for a fully responsive interface with a seamless theme switching system (Dark/Light). The project utilizes advanced routing (react-router-dom), dynamic state management through the Context API, and a multi-language system (PL/EN).',
+        gallery: ['jastrona1.png', 'jastrona2.png']
       },
       {
         id: 'photo1',
-        title: 'Photographer Portfolio #1',
-        code: '<Photo Portfolio />',
+        title: 'Portfolio: Sports Photographer',
+        code: '<Justyna Portfolio />',
         color: 'from-orange-900/40 to-red-900/40',
-        tags: ['Web Design', 'UI/UX'],
-        teaser: 'Coming soon... Responsive gallery website created for a photographer friend.',
-        fullDesc: 'Project currently in development. It will be a modern, minimalist photo gallery with image loading optimization for mobile devices.',
-        gallery: []
+        tags: ['Web Design', 'UI/UX', 'CSS Grid'],
+        teaser: 'Dynamic visualization of a website for a photographer and videographer specializing in sports shots.',
+        fullDesc: 'A modern website project for Justyna – a photographer and videographer specializing in dynamic sports action. The interface is designed to immediately highlight the movement and energy flowing from the video content and action photos. A thoughtful grid system was applied for an elegant display of multimedia. Note: The showcased version is currently a fully functional code-based visualization (mockup). Ultimately, the project will be deployed as a professional website with a custom domain and dedicated hosting for the client.',
+        gallery: ['justynastrona1.png', 'justynastrona2.png']
       },
       {
         id: 'photo2',
-        title: 'Photographer Portfolio #2',
-        code: '<Photo Portfolio />',
+        title: 'Portfolio: Fine Art Photography',
+        code: '<Mikołaj Portfolio />',
         color: 'from-cyan-900/40 to-blue-900/40',
-        tags: ['Web Design', 'UI/UX'],
-        teaser: 'Coming soon... Personalized web space for showcasing photo sessions.',
-        fullDesc: 'Project in the wireframing phase. The site will feature a dynamic masonry layout for an elegant display of a photography portfolio.',
-        gallery: []
+        tags: ['Web Design', 'Masonry Layout', 'UI/UX'],
+        teaser: 'A moody and atmospheric visualization of a web portfolio for a fine art photographer.',
+        fullDesc: 'A personalized web space created for Mikołaj, a photographer with a strong artistic flair. The site focuses on a darker, moody design that perfectly complements his portfolio, which includes fine art photography, concert coverage, and event photography. An asymmetrical gallery layout (masonry layout) is used to properly display photos of varying aspect ratios. Note: The showcased version is an advanced interface visualization at this stage. The site will eventually be migrated to a professional hosting environment with a custom domain attached.',
+        gallery: ['mikolajstrona1.png']
       }
     ]
   }

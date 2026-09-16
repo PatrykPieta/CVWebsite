@@ -16,8 +16,9 @@ export default function Navbar() {
     <nav className={`sticky top-0 w-full z-40 ${isDark ? 'bg-[#050810]/90 border-gray-800' : 'bg-white/90 border-slate-200'} backdrop-blur-md border-b`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
-        <Link to="/" onClick={closeMenu} className="text-xl font-bold tracking-widest flex items-center gap-2">
-          <span className="text-blue-500">{'{'}</span> DataCraft <span className="text-blue-500">{'}'}</span>
+        {/* Usunięty DataCraft, dodane Twoje Imię i Nazwisko */}
+        <Link to="/" onClick={closeMenu} className="text-xl font-bold tracking-widest flex items-center gap-2 hover:text-blue-500 transition-colors">
+          Patryk Pięta
         </Link>
 
         {/* Desktop Menu */}

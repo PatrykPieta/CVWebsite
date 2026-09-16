@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { AppContext } from '../App';
 
 export default function Projects() {
-  const { isDark, t, theme } = useContext(AppContext);
+  const { isDark, t, theme, lang } = useContext(AppContext);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -11,6 +11,7 @@ export default function Projects() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id]);
 
+  // === WIDOK SZCZEGÓŁÓW POJEDYNCZEGO PROJEKTU ===
   if (id) {
     const project = t.projectsData.find(p => p.id === id);
     if (!project) return <div className="text-center py-20 text-2xl font-bold">Projekt nie został znaleziony!</div>;
@@ -20,9 +21,22 @@ export default function Projects() {
         <button onClick={() => navigate('/projects')} className="mb-8 text-blue-500 font-bold flex items-center gap-2 hover:text-blue-400 transition-colors">
           ← {t.projectsTab.backBtn}
         </button>
-        <div className="max-w-4xl">
-          <div className={`w-full h-64 md:h-96 rounded-3xl bg-gradient-to-br ${project.color} flex items-center justify-center mb-10 shadow-2xl border border-gray-700/50`}>
-            <span className="text-white font-mono text-2xl md:text-4xl">{project.code}</span>
+        <div className="max-w-4xl mx-auto">
+          
+          {/* GŁÓWNY BANER (HERO) - Zdjęcie w pełnym wymiarze lub Gradient */}
+          <div className={`w-full rounded-3xl overflow-hidden bg-gradient-to-br ${project.color} flex items-center justify-center mb-10 shadow-2xl border border-gray-700/50 relative`}>
+            {project.gallery && project.gallery.length > 0 ? (
+              // ZMIANA: Zdjęcie nie jest już ucinane (object-contain, h-auto)
+              <img 
+                src={`/images/${project.gallery[0]}`} 
+                alt={project.title} 
+                className="w-full h-auto max-h-[75vh] object-contain p-2 md:p-6"
+              />
+            ) : (
+              <div className="w-full h-64 md:h-[450px] flex items-center justify-center">
+                <span className="text-white font-mono text-2xl md:text-4xl px-4 text-center">{project.code}</span>
+              </div>
+            )}
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-6">{project.title}</h2>
@@ -39,31 +53,20 @@ export default function Projects() {
             {project.fullDesc}
           </div>
 
-          {/* SEKCJA GALERII / MULTIMEDIÓW */}
-          {project.gallery && project.gallery.length > 0 && (
+          {/* SEKCJA GALERII (pokazuje zdjęcia od drugiego w górę) */}
+          {project.gallery && project.gallery.length > 1 && (
             <div>
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span className="text-purple-500">▹</span> Demo & Zrzuty ekranu
+                <span className="text-purple-500">▹</span> {lang === 'PL' ? 'Demo & Zrzuty ekranu' : 'Demo & Screenshots'}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {project.gallery.map((media, idx) => (
-                  <div key={idx} className={`rounded-xl overflow-hidden border ${theme.borderColor} shadow-lg ${theme.cardBg}`}>
-                    {media.type === 'video' ? (
-                      <video 
-                        src={`/images/${media.src}`} 
-                        autoPlay 
-                        loop 
-                        muted 
-                        playsInline
-                        className="w-full h-auto object-cover"
-                      />
-                    ) : (
-                      <img 
-                        src={`/images/${media.src}`} 
-                        alt={`Screenshot ${idx}`} 
-                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                      />
-                    )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {project.gallery.slice(1).map((img, idx) => (
+                  <div key={idx} className={`rounded-xl overflow-hidden border ${theme.borderColor} shadow-lg ${theme.cardBg} aspect-video`}>
+                    <img 
+                      src={`/images/${img}`} 
+                      alt={`Screenshot ${idx + 1}`} 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 ))}
               </div>
@@ -74,6 +77,7 @@ export default function Projects() {
     );
   }
 
+  // === WIDOK GŁÓWNEJ LISTY WSZYSTKICH PROJEKTÓW ===
   return (
     <div className="animate-fade-in">
       <h2 className="text-3xl md:text-4xl font-bold mb-12 flex items-center gap-3">
@@ -82,11 +86,18 @@ export default function Projects() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {t.projectsData.map(proj => (
           <div key={proj.id} className={`${theme.cardBg} border ${theme.borderColor} rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all shadow-sm flex flex-col group`}>
-            <div className={`h-40 ${isDark ? 'bg-gray-900' : 'bg-slate-100'} p-4 relative overflow-hidden flex items-center justify-center`}>
-              <div className={`w-full h-full bg-gradient-to-br ${proj.color} rounded-xl border border-gray-700 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500`}>
-                <span className="text-white font-mono text-sm">{proj.code}</span>
+            
+            {/* KAFELEK: Teraz ładuje pierwsze zdjęcie z projektu (jeśli istnieje) */}
+            <div className={`h-48 ${isDark ? 'bg-gray-900' : 'bg-slate-100'} p-4 relative overflow-hidden flex items-center justify-center`}>
+              <div className={`w-full h-full rounded-xl border border-gray-700 overflow-hidden flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500 ${proj.gallery && proj.gallery.length > 0 ? '' : `bg-gradient-to-br ${proj.color}`}`}>
+                {proj.gallery && proj.gallery.length > 0 ? (
+                  <img src={`/images/${proj.gallery[0]}`} alt={proj.title} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-white font-mono text-sm px-2 text-center">{proj.code}</span>
+                )}
               </div>
             </div>
+
             <div className="p-6 flex flex-col flex-grow">
               <h3 className="text-xl font-bold mb-3">{proj.title}</h3>
               <p className={`${theme.textMuted} mb-6 text-sm flex-grow line-clamp-3`}>{proj.teaser}</p>
