@@ -136,7 +136,7 @@ export const translations = {
           topic: "Method and Materials", 
           desc: "Prelekcja na międzynarodowej konferencji w Bułgarii. Wystąpienie w ramach panelu 'Method and Materials', skupiające się na szczegółowym omówieniu metodologii badawczej, wykorzystanych materiałów oraz sposobów ich analizy.",
           articleFile: "bulgaria_article.pdf",
-          presentationFile: "bulgaria_presentation.ppt", // ZMIENIONE NA .ppt
+          presentationFile: "bulgaria_presentation.ppt",
           image: "bulgaria_photo.png"
         }
       ]
@@ -213,33 +213,33 @@ export const translations = {
       },
       {
         id: 'pge_baza',
-        title: 'Baza Danych',
-        code: '<Database />',
+        title: 'Baza Wiedzy i Wyszukiwarka',
+        code: '<Knowledge Base />',
         color: 'from-green-900/40 to-emerald-900/40',
-        tags: ['Work in progress'],
-        teaser: 'Szczegóły projektu i wykorzystane technologie wkrótce.',
-        fullDesc: 'Opis projektu jest w trakcie przygotowywania...',
-        gallery: []
+        tags: ['JavaScript', 'SharePoint REST API', 'Data Parsing'],
+        teaser: 'Aplikacja webowa rozwiązująca problem rozproszonej wiedzy poprzez wyszukiwanie semantyczne i analizę dokumentów przetargowych.',
+        fullDesc: 'Jako jedyny wykonawca zaprojektowałem i stworzyłem aplikację webową usprawniającą zarządzanie wiedzą organizacyjną. Głównym wyzwaniem biznesowym było skrócenie czasu potrzebnego na ręczną analizę rozproszonych plików DOCX i XLSX. Rozwiązanie to autorski silnik wyszukiwania podobieństwa tekstowego, zbudowany w oparciu o JavaScript, zintegrowany bezpośrednio z listami Microsoft SharePoint za pomocą REST API. Zaimplementowałem zaawansowany parser dokumentów działający w przeglądarce, mechanizmy normalizacji i obsługi synonimów oraz automatyczne łączenie danych z wielu źródeł. Aplikację wyposażyłem również w walidatory jakości, detekcję duplikatów i panel analityczny z wykresami KPI, drastycznie skracając czas pozyskiwania informacji biznesowych.',
+        gallery: [] // Miejsce na grafikę
       },
       {
         id: 'pge_sciezka',
-        title: 'Ścieżka Decyzyjna',
-        code: '<Decision Path />',
+        title: 'Interaktywne Ścieżki Decyzyjne',
+        code: '<Decision Paths />',
         color: 'from-teal-900/40 to-blue-900/40',
-        tags: ['Work in progress'],
-        teaser: 'Szczegóły projektu i wykorzystane technologie wkrótce.',
-        fullDesc: 'Opis projektu jest w trakcie przygotowywania...',
-        gallery: []
+        tags: ['JavaScript', 'Business Rules', 'SharePoint API'],
+        teaser: 'System wspomagania decyzji przekształcający setki stron statycznych procedur w interaktywny, automatyczny workflow.',
+        fullDesc: 'Zaprojektowałem aplikację wspierającą nawigację po złożonych procedurach inwestycyjnych i korporacyjnych. Głównym problemem była ogromna ilość rozproszonych regulacji. Rozwiązaniem było stworzenie kompletnego silnika reguł biznesowych zintegrowanego z biblioteką dokumentów SharePoint. Aplikacja dynamicznie generuje ścieżkę decyzyjną na podstawie logiki progów kwotowych – wskazuje odpowiednich decydentów, wymagane zgody korporacyjne i listę kroków do wykonania. Napisałem również dedykowane skrypty (migratory) odpowiedzialne za masowe ładowanie danych i aktualizację reguł. Całość odciążyła pracowników od ręcznego czytania i interpretacji instrukcji operacyjnych.',
+        gallery: [] // Miejsce na grafikę
       },
       {
         id: 'pge_raporty',
-        title: 'Narzędzie Raportowe',
-        code: '<Reporting Tool />',
+        title: 'Automatyzacja Raportów Zarządczych',
+        code: '<Reporting Automation />',
         color: 'from-blue-900/40 to-indigo-900/40',
-        tags: ['Work in progress'],
-        teaser: 'Szczegóły projektu i wykorzystane technologie wkrótce.',
-        fullDesc: 'Opis projektu jest w trakcie przygotowywania...',
-        gallery: []
+        tags: ['VBA', 'Excel', 'Word Automation'],
+        teaser: 'Zaawansowane narzędzie analityczne standaryzujące i automatyzujące proces generowania raportów do formatu MS Word.',
+        fullDesc: 'Rozbudowane narzędzie analityczne stworzone w celu eliminacji problemu rozproszonych i niespójnych raportów tygodniowych. Za pomocą VBA oraz zaawansowanych mechanizmów Excela, zintegrowałem rozproszone zbiory danych w centralny rejestr projektowy. Narzędzie automatycznie generuje identyfikatory wpisów, waliduje jakość danych pod kątem nieprecyzyjnych opisów (jeszcze przed publikacją) i obsługuje pełen workflow zatwierdzania. Największą wartością dodaną jest wykorzystanie technologii Microsoft Word Automation – system jednym kliknięciem eksportuje zagregowane dane do spójnego, sformatowanego dokumentu tekstowego z KPI i listą tematów opóźnionych, pełniąc rolę centralnego pulpitu menedżerskiego.',
+        gallery: [] // Miejsce na grafikę
       },
       {
         id: 'cranes',
@@ -394,7 +394,7 @@ export const translations = {
           topic: "Method and Materials", 
           desc: "Academic presentation at an international conference in Bulgaria. The talk, part of the 'Method and Materials' panel, focused on a detailed discussion of research methodology, materials used, and analysis methods.",
           articleFile: "bulgaria_article.pdf",
-          presentationFile: "bulgaria_presentation.ppt", // ZMIENIONE NA .ppt
+          presentationFile: "bulgaria_presentation.ppt",
           image: "bulgaria_photo.png"
         }
       ]
@@ -471,33 +471,33 @@ export const translations = {
       },
       {
         id: 'pge_baza',
-        title: 'Database',
-        code: '<Database />',
+        title: 'Knowledge Base Search Engine',
+        code: '<Knowledge Base />',
         color: 'from-green-900/40 to-emerald-900/40',
-        tags: ['Work in progress'],
-        teaser: 'Project details and technologies coming soon.',
-        fullDesc: 'Project description is currently being prepared...',
-        gallery: []
+        tags: ['JavaScript', 'SharePoint REST API', 'Data Parsing'],
+        teaser: 'Web application solving the problem of scattered corporate knowledge via semantic search and document analysis.',
+        fullDesc: 'As a solo developer, I designed and built a web application to streamline organizational knowledge management. The main business challenge was to reduce the time spent manually analyzing scattered DOCX and XLSX files. The solution features a custom text similarity search engine built with JavaScript and directly integrated with Microsoft SharePoint lists via its REST API. I implemented an advanced, in-browser document parser, text normalization, synonym handling, and automatic merging of data from multiple sources. The application is also equipped with data quality validators, duplicate detection, and an analytical dashboard with KPI charts, drastically reducing the time required to retrieve business information.',
+        gallery: [] // Miejsce na grafikę
       },
       {
         id: 'pge_sciezka',
-        title: 'Decision Path',
-        code: '<Decision Path />',
+        title: 'Interactive Decision Paths',
+        code: '<Decision Paths />',
         color: 'from-teal-900/40 to-blue-900/40',
-        tags: ['Work in progress'],
-        teaser: 'Project details and technologies coming soon.',
-        fullDesc: 'Project description is currently being prepared...',
-        gallery: []
+        tags: ['JavaScript', 'Business Rules', 'SharePoint API'],
+        teaser: 'Decision support system transforming hundreds of static procedure pages into an interactive, automated workflow.',
+        fullDesc: 'I designed an application supporting navigation through complex investment and corporate procedures. The primary issue was the overwhelming volume of scattered regulations. The solution involved creating a comprehensive business rules engine integrated with a SharePoint document library. The app dynamically generates a decision path based on financial threshold logic – it identifies appropriate decision-makers, necessary corporate approvals, and a step-by-step task list. I also wrote dedicated migration scripts responsible for mass data loading and rule updates. This entirely relieved employees from the burden of manually reading and interpreting operational manuals.',
+        gallery: [] // Miejsce na grafikę
       },
       {
         id: 'pge_raporty',
-        title: 'Reporting Tool',
-        code: '<Reporting Tool />',
+        title: 'Management Reporting Automation',
+        code: '<Reporting Automation />',
         color: 'from-blue-900/40 to-indigo-900/40',
-        tags: ['Work in progress'],
-        teaser: 'Project details and technologies coming soon.',
-        fullDesc: 'Project description is currently being prepared...',
-        gallery: []
+        tags: ['VBA', 'Excel', 'Word Automation'],
+        teaser: 'Advanced analytical tool standardizing and automating the generation of management reports to MS Word format.',
+        fullDesc: 'A comprehensive analytical tool created to eliminate the problem of scattered and inconsistent weekly reports. Using VBA and advanced Excel mechanisms, I integrated disparate data sets into a central project register. The tool automatically generates entry identifiers, validates data quality for imprecise descriptions (before publication), and handles the entire approval workflow. The greatest added value comes from utilizing Microsoft Word Automation technology – with a single click, the system exports aggregated data into a cohesive, formatted text document complete with KPIs and a list of overdue tasks, serving as a central managerial dashboard.',
+        gallery: [] // Miejsce na grafikę
       },
       {
         id: 'cranes',
