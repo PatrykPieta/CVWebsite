@@ -1,6 +1,58 @@
 import React, { useContext, useEffect } from 'react';
+import * as THREE from 'three';
+import { Canvas } from '@react-three/fiber';
+import { ContactShadows, Environment, Float, OrbitControls, useGLTF } from '@react-three/drei';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AppContext } from '../App';
+
+function AgvModel() {
+  const { scene } = useGLTF('/agv.glb');
+
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (child.isMesh && child.material) {
+        const material = child.material.clone();
+        material.color = new THREE.Color('#dfe7f4');
+        material.metalness = 0.35;
+        material.roughness = 0.75;
+        material.emissive = new THREE.Color('#3b82f6');
+        material.emissiveIntensity = 0.12;
+        child.material = material;
+      }
+    });
+  }, [scene]);
+
+  return (
+    <group scale={2.25} position={[0, -0.55, 0]} rotation={[0.18, -0.9, 0]}>
+      <primitive object={scene} />
+    </group>
+  );
+}
+
+function AgvProjectViewer({ isDark }) {
+  return (
+    <div className={`mt-10 rounded-3xl border ${isDark ? 'border-gray-700 bg-[#050810]' : 'border-slate-200 bg-slate-50'} overflow-hidden shadow-xl`}>
+      <div className="border-b border-gray-700/50 px-6 py-4">
+        <h3 className="text-2xl font-bold text-blue-500">AGV Digital Twin Model</h3>
+      </div>
+      <div className="h-[560px] w-full">
+        <Canvas camera={{ position: [0, 1.8, 5.2], fov: 26 }} shadows>
+          <color attach="background" args={[isDark ? '#07111f' : '#f8fafc']} />
+          <ambientLight intensity={1.4} />
+          <hemisphereLight intensity={1.2} color="#dbeafe" groundColor="#1e293b" />
+          <directionalLight position={[3, 5, 5]} intensity={2.3} color="#eff6ff" castShadow />
+          <spotLight position={[-4, 6, 4]} angle={0.5} penumbra={0.8} intensity={2.2} color="#60a5fa" />
+          <Environment preset="city" />
+          <Float speed={1.7} rotationIntensity={0.7} floatIntensity={0.8}>
+            <AgvModel />
+          </Float>
+          <ContactShadows position={[0, -1.2, 0]} opacity={0.55} scale={12} blur={2.5} far={3.5} />
+          <OrbitControls enableZoom={true} enablePan={false} minDistance={3.5} maxDistance={8} autoRotate autoRotateSpeed={1.2} />
+        </Canvas>
+      </div>
+    </div>
+  );
+}
 
 export default function Projects() {
   const { isDark, t, theme, lang } = useContext(AppContext);
@@ -52,6 +104,8 @@ export default function Projects() {
           <div className={`${theme.cardBg} border ${theme.borderColor} p-8 rounded-2xl shadow-sm leading-relaxed text-lg ${theme.textMuted} mb-12`}>
             {project.fullDesc}
           </div>
+
+          {project.id === 'agv' && <AgvProjectViewer isDark={isDark} />}
 
           {/* SEKCJA GALERII (pokazuje zdjęcia od drugiego w górę) */}
           {project.gallery && project.gallery.length > 1 && (

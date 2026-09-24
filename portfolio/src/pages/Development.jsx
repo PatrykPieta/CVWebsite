@@ -1,18 +1,57 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../App';
 import { certificatesList } from '../data/content';
+import { ArrowRight, BarChart3, BrainCircuit, Lightbulb, Target, Trophy } from 'lucide-react';
 
 export default function Development() {
   const { t, theme, isDark, lang } = useContext(AppContext);
 
+  const topTalents = [
+    { name: 'Uczenie się', description: 'Szybko przyswajam nowe technologie i przekładam teorię na praktykę.', icon: BrainCircuit },
+    { name: 'Osiąganie', description: 'Skupiam się na realnych rezultatach i konsekwentnym wykonywaniu celów.', icon: Trophy },
+    { name: 'Analityk', description: 'Łączę dane, wzorce i logikę, aby rozwiązywać problemy w praktyce.', icon: BarChart3 },
+    { name: 'Wizjoner', description: 'Widzę potencjał technologii i projektuję rozwiązania z myślą o przyszłości.', icon: Lightbulb },
+    { name: 'Ukierunkowanie', description: 'Działam celowo, rozumiem priorytety i konsekwentnie realizuję plan.', icon: Target },
+  ];
+
   return (
     <div className="animate-fade-in space-y-16">
-      
-      {/* NAGŁÓWEK */}
-      <div>
-        <h2 className="text-3xl md:text-4xl font-bold flex items-center gap-3 mb-8">
-          <span className="text-blue-500">#</span> {t.nav.dev}
-        </h2>
+      <div className="space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold flex items-center gap-3 mb-3">
+              <span className="text-blue-500">#</span> {t.nav.dev}
+            </h2>
+            <p className={`${theme.textMuted} text-sm md:text-base`}>
+              Top 5 talentów Gallupa — mocne obszary mojej pracy i rozwoju.
+            </p>
+          </div>
+
+          <a
+            href="/GallupTest.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 self-start rounded-xl border border-blue-500/50 bg-blue-500/10 px-4 py-2 text-sm font-semibold text-blue-400 transition-all hover:border-blue-400 hover:bg-blue-500 hover:text-white"
+          >
+            Otwórz raport Gallup
+            <ArrowRight size={16} />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4">
+          {topTalents.map(({ name, description, icon: Icon }) => (
+            <div
+              key={name}
+              className={`${theme.cardBg} border ${theme.borderColor} rounded-2xl p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40`}
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
+                <Icon size={22} />
+              </div>
+              <h3 className="mb-2 text-lg font-bold">{name}</h3>
+              <p className={`${theme.textMuted} text-sm leading-relaxed`}>{description}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* AKTUALNE PLANY I PRZYSZŁOŚĆ */}

@@ -157,7 +157,7 @@ export const translations = {
           title: "Bieganie i Kalistenika",
           desc: "Miałem swój intensywny okres biegania. Przygotowywałem się na 20. Półmaraton Warszawski, który udało mi się ukończyć z czasem 2:00:05. Po nim musiałem wyleczyć kontuzję i powoli zbieram się do powrotu. Oprócz biegania fascynuje mnie kalistenika. Moim największym celem jest w przyszłości zrobić ludzką flagę.",
           tags: ["Półmaraton", "Dragon Flag", "Human Flag", "Trening siłowy"],
-          gallery: [null, null, null, null]
+          gallery: ['sport1.png', 'sport2.png', 'sport3.png', 'sport4.png']
         },
         {
           id: "video",
@@ -217,8 +217,8 @@ export const translations = {
         code: '<Knowledge Base />',
         color: 'from-green-900/40 to-emerald-900/40',
         tags: ['JavaScript', 'SharePoint REST API', 'Data Parsing'],
-        teaser: 'Aplikacja webowa rozwiązująca problem rozproszonej wiedzy poprzez wyszukiwanie semantyczne i analizę dokumentów przetargowych.',
-        fullDesc: 'Jako jedyny wykonawca zaprojektowałem i stworzyłem aplikację webową usprawniającą zarządzanie wiedzą organizacyjną. Głównym wyzwaniem biznesowym było skrócenie czasu potrzebnego na ręczną analizę rozproszonych plików DOCX i XLSX. Rozwiązanie to autorski silnik wyszukiwania podobieństwa tekstowego, zbudowany w oparciu o JavaScript, zintegrowany bezpośrednio z listami Microsoft SharePoint za pomocą REST API. Zaimplementowałem zaawansowany parser dokumentów działający w przeglądarce, mechanizmy normalizacji i obsługi synonimów oraz automatyczne łączenie danych z wielu źródeł. Aplikację wyposażyłem również w walidatory jakości, detekcję duplikatów i panel analityczny z wykresami KPI, drastycznie skracając czas pozyskiwania informacji biznesowych.',
+        teaser: 'Projekt w trakcie realizacji. Wykorzystywane technologie: JavaScript, SharePoint REST API, Data Parsing.',
+        fullDesc: 'Projekt w trakcie realizacji. Wykorzystywane technologie: JavaScript, SharePoint REST API, Data Parsing.',
         gallery: [] // Miejsce na grafikę
       },
       {
@@ -227,8 +227,8 @@ export const translations = {
         code: '<Decision Paths />',
         color: 'from-teal-900/40 to-blue-900/40',
         tags: ['JavaScript', 'Business Rules', 'SharePoint API'],
-        teaser: 'System wspomagania decyzji przekształcający setki stron statycznych procedur w interaktywny, automatyczny workflow.',
-        fullDesc: 'Zaprojektowałem aplikację wspierającą nawigację po złożonych procedurach inwestycyjnych i korporacyjnych. Głównym problemem była ogromna ilość rozproszonych regulacji. Rozwiązaniem było stworzenie kompletnego silnika reguł biznesowych zintegrowanego z biblioteką dokumentów SharePoint. Aplikacja dynamicznie generuje ścieżkę decyzyjną na podstawie logiki progów kwotowych – wskazuje odpowiednich decydentów, wymagane zgody korporacyjne i listę kroków do wykonania. Napisałem również dedykowane skrypty (migratory) odpowiedzialne za masowe ładowanie danych i aktualizację reguł. Całość odciążyła pracowników od ręcznego czytania i interpretacji instrukcji operacyjnych.',
+        teaser: 'Projekt w trakcie realizacji. Wykorzystywane technologie: JavaScript, Business Rules, SharePoint API.',
+        fullDesc: 'Projekt w trakcie realizacji. Wykorzystywane technologie: JavaScript, Business Rules, SharePoint API.',
         gallery: [] // Miejsce na grafikę
       },
       {
@@ -237,8 +237,8 @@ export const translations = {
         code: '<Reporting Automation />',
         color: 'from-blue-900/40 to-indigo-900/40',
         tags: ['VBA', 'Excel', 'Word Automation'],
-        teaser: 'Zaawansowane narzędzie analityczne standaryzujące i automatyzujące proces generowania raportów do formatu MS Word.',
-        fullDesc: 'Rozbudowane narzędzie analityczne stworzone w celu eliminacji problemu rozproszonych i niespójnych raportów tygodniowych. Za pomocą VBA oraz zaawansowanych mechanizmów Excela, zintegrowałem rozproszone zbiory danych w centralny rejestr projektowy. Narzędzie automatycznie generuje identyfikatory wpisów, waliduje jakość danych pod kątem nieprecyzyjnych opisów (jeszcze przed publikacją) i obsługuje pełen workflow zatwierdzania. Największą wartością dodaną jest wykorzystanie technologii Microsoft Word Automation – system jednym kliknięciem eksportuje zagregowane dane do spójnego, sformatowanego dokumentu tekstowego z KPI i listą tematów opóźnionych, pełniąc rolę centralnego pulpitu menedżerskiego.',
+        teaser: 'Projekt w trakcie realizacji. Wykorzystywane technologie: VBA, Excel, Word Automation.',
+        fullDesc: 'Projekt w trakcie realizacji. Wykorzystywane technologie: VBA, Excel, Word Automation.',
         gallery: [] // Miejsce na grafikę
       },
       {

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
+import { motion } from 'framer-motion';
 import { AppContext } from '../App';
 
 export default function Interests() {
   const { isDark, t, theme } = useContext(AppContext);
 
-  // Funkcja rozpoznająca pliki wideo z folderu images
   const isVideo = (filename) => {
     if (!filename) return false;
     return filename.endsWith('.mp4') || filename.endsWith('.webm');
@@ -12,8 +12,6 @@ export default function Interests() {
 
   return (
     <div className="animate-fade-in space-y-16">
-      
-      {/* Nagłówek */}
       <div className="max-w-2xl">
         <h2 className="text-3xl md:text-5xl font-bold mb-6 flex items-center gap-3">
           <span className="text-blue-500">#</span> {t.interestsTab.title}
@@ -23,11 +21,16 @@ export default function Interests() {
         </p>
       </div>
 
-      {/* Lista Sekcji */}
       <div className="space-y-16">
-        {t.interestsTab.sections.map((section) => (
-          <div key={section.id} className={`${theme.cardBg} border ${theme.borderColor} rounded-3xl p-6 md:p-10 shadow-sm flex flex-col gap-8`}>
-            
+        {t.interestsTab.sections.map((section, sectionIndex) => (
+          <motion.section
+            key={section.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, delay: sectionIndex * 0.06 }}
+            className={`${theme.cardBg} border ${theme.borderColor} rounded-3xl p-6 md:p-10 shadow-sm flex flex-col gap-8`}
+          >
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-4xl">{section.icon}</span>
@@ -48,12 +51,31 @@ export default function Interests() {
               </div>
             </div>
 
-            {/* ZMIANA TUTAJ: Siatka 2x2 (grid-cols-1 na telefonach, grid-cols-2 na komputerach) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.12,
+                  },
+                },
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
               {section.gallery.map((mediaFile, idx) => (
-                <div 
-                  key={idx} 
-                  // ZMIANA TUTAJ: aspect-video (16:9) zamiast aspect-square (1:1)
+                <motion.div
+                  key={idx}
+                  variants={{
+                    hidden: { opacity: 0, y: 24, scale: 0.98 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      transition: { duration: 0.5, ease: 'easeOut' },
+                    },
+                  }}
                   className={`aspect-video rounded-2xl overflow-hidden border ${theme.borderColor} ${isDark ? 'bg-gray-900/60' : 'bg-slate-200/50'} flex items-center justify-center relative group bg-black/5 shadow-md`}
                 >
                   {mediaFile ? (
@@ -92,14 +114,12 @@ export default function Interests() {
                       <span className="text-xs font-mono tracking-widest uppercase">Miejsce na plik</span>
                     </div>
                   )}
-                </div>
+                </motion.div>
               ))}
-            </div>
-            
-          </div>
+            </motion.div>
+          </motion.section>
         ))}
       </div>
-      
     </div>
   );
 }
